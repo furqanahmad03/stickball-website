@@ -18,7 +18,6 @@ import {
   Sparkles
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import { useTheme } from "@/contexts/ThemeContext";
 
 const keyFeatures = [
   {
@@ -122,8 +121,6 @@ const colorVariants = {
 
 
 export default function AboutPage() {
-  const { theme } = useTheme();
-  
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white mt-10 to-blue-50/30 dark:from-[#2c2c2c] dark:via-[#1c1c1c] dark:to-background">
       {/* Hero Section */}

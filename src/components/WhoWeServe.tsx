@@ -1,8 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { GraduationCap, Building2, Users, PiggyBank, Heart, ChevronDown, ChevronRight } from "lucide-react";
-import { useTheme } from "@/contexts/ThemeContext";
+import { GraduationCap, Building2, Users, PiggyBank, Heart, ChevronRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 const audienceTiles = [
@@ -49,14 +48,7 @@ const audienceTiles = [
 ];
 
 export default function WhoWeServe() {
-  const { theme } = useTheme();
   const router = useRouter();
-  const scrollToContact = () => {
-    const contactSection = document.getElementById('contact-form');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
     <section className="py-24 bg-gradient-to-br from-slate-50 via-white to-blue-50/30 dark:from-background dark:via-[#1c1c1c] dark:to-[#2c2c2c] relative overflow-hidden">

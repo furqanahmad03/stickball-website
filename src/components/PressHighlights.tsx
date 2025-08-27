@@ -9,7 +9,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { useTheme } from "@/contexts/ThemeContext";
 
 const pressItems = [
   {
@@ -72,10 +71,8 @@ export default function PressHighlights() {
   };
 
   const handleMediaInquiries = () => {
-    const contactSection = document.getElementById('contact-form');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
+    // Navigate to contact page for media inquiries
+    window.location.href = '/contact';
   };
 
   return (

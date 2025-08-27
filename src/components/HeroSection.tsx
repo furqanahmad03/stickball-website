@@ -10,13 +10,6 @@ export default function HeroSection() {
   const router = useRouter();
   const { theme } = useTheme();
 
-  const scrollToContact = () => {
-    const contactSection = document.getElementById("contact-form");
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Dark Mode Gradient Shadow */}

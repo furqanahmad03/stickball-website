@@ -8,7 +8,6 @@ import {
   ArrowRight,
   CheckCircle,
 } from "lucide-react";
-import { useTheme } from "@/contexts/ThemeContext";
 import { useRouter } from "next/navigation";
 
 const methodologySteps = [
@@ -89,7 +88,6 @@ const colorVariants = {
 };
 
 export default function OurMethodology() {
-  const { theme } = useTheme();
   const router = useRouter();
   return (
     <>

@@ -2,18 +2,10 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Users, Target, Zap, Sparkles } from "lucide-react";
-import { useTheme } from "@/contexts/ThemeContext";
 import { useRouter } from "next/navigation";
 
 export default function CallToAction() {
-  const { theme } = useTheme();
   const router = useRouter();
-  const scrollToContact = () => {
-    const contactSection = document.getElementById('contact-form');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
     <section className="py-24 bg-gradient-to-br from-slate-700 via-blue-900 to-purple-900 dark:from-slate-900 dark:via-blue-900 dark:to-purple-900 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 relative overflow-hidden">

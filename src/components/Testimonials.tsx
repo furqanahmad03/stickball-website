@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { Quote, GraduationCap, Building2, ArrowRight } from "lucide-react";
-import { useTheme } from "@/contexts/ThemeContext";
 import { useRouter } from "next/navigation";
 
 const testimonials = [
@@ -44,7 +43,6 @@ const colorVariants = {
 };
 
 export default function Testimonials() {
-  const { theme } = useTheme();
   const router = useRouter();
   return (
     <section className="py-24 bg-gradient-to-br from-slate-50 via-white to-purple-50/30 dark:from-background dark:via-[#1c1c1c] dark:to-[#2c2c2c] relative overflow-hidden">
