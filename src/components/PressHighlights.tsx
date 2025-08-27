@@ -18,8 +18,9 @@ const pressItems = [
     source: "8 News Now",
     url: "https://8newsnow.com/business/press-releases/ein-presswire/706626087/everett-high-school-partners-with-stickball-for-financial-literacy",
     type: "article",
-    image: "/api/placeholder/400/250",
-    excerpt: "Partnership brings innovative financial education to local students"
+    image: "/article-thumbnail.jpeg",
+    excerpt: "Partnership brings innovative financial education to local students",
+    action: "Read Full Article"
   },
   {
     id: 2,
@@ -27,8 +28,9 @@ const pressItems = [
     source: "YouTube",
     url: "https://youtu.be/FTRQ2rj1Jb0",
     type: "video",
-    image: "/api/placeholder/400/250",
-    excerpt: "See our platform in action with real-world examples"
+    image: "/finencial-literacy.png",
+    excerpt: "See our platform in action with real-world examples",
+    action: "Watch Video"
   },
   {
     id: 3,
@@ -36,8 +38,9 @@ const pressItems = [
     source: "BCCU Blog",
     url: "https://www.bccu.org/blog/bellwether-stickball",
     type: "article",
-    image: "/api/placeholder/400/250",
-    excerpt: "Strengthening communities through financial education"
+    image: "/bellwether-community.png",
+    excerpt: "Strengthening communities through financial education",
+    action: "Read Full Blog"
   },
   {
     id: 4,
@@ -45,8 +48,9 @@ const pressItems = [
     source: "CIO Look Media",
     url: "https://ciolookmedia.com/innovating-the-future-sahal-laher-earns-top-spot-in-ciolooks-top-05-key-influencers-transforming-ai-in-2025/",
     type: "article",
-    image: "/api/placeholder/400/250",
-    excerpt: "Recognized for innovation in AI-powered education technology"
+    image: "/sahal-laher.webp",
+    excerpt: "Recognized for innovation in AI-powered education technology",
+    action: "Read Full Article"
   },
   {
     id: 5,
@@ -54,13 +58,13 @@ const pressItems = [
     source: "Brookline Bank",
     url: "https://www.brooklinebank.com/2025/02/06/brookline-bank-and-stickball-providing-innovative-financial-literacy-platforms-for-customers-and-underserved-communities/",
     type: "article",
-    image: "/api/placeholder/400/250",
-    excerpt: "Serving customers and underserved communities with cutting-edge solutions"
+    image: "/brookline-bank.jpg",
+    excerpt: "Serving customers and underserved communities with cutting-edge solutions",
+    action: "Read Full Article"
   }
 ];
 
 export default function PressHighlights() {
-  const { theme } = useTheme();
   
   const handleDownloadPressKit = () => {
     // Placeholder for press kit download
@@ -172,7 +176,7 @@ export default function PressHighlights() {
                               rel="noopener noreferrer"
                               className="inline-flex items-center gap-3 bg-white/95 backdrop-blur-sm hover:bg-white text-gray-900 px-8 py-4 rounded-full text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300"
                             >
-                              <span>Read Full Article</span>
+                              <span>{item.action}</span>
                               <ExternalLink className="h-5 w-5" />
                             </a>
                           </div>
