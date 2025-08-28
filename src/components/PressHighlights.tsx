@@ -214,7 +214,7 @@ export default function PressHighlights() {
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <button
                 onClick={handleDownloadPressKit}
-                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-10 py-4 rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 inline-flex items-center gap-3 hover:scale-105"
+                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 sm:px-10 py-4 text-lg rounded-full font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 inline-flex items-center gap-3 hover:scale-105"
               >
                 <Download className="h-5 w-5" />
                 Download Press Kit
@@ -222,7 +222,7 @@ export default function PressHighlights() {
               
               <button
                 onClick={handleMediaInquiries}
-                className="bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 px-10 py-4 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center gap-3 hover:scale-105"
+                className="bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 px-6 sm:px-10 py-4 text-xs sm:text-sm md:text-lg rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center gap-3 hover:scale-105"
               >
                 <Mail className="h-5 w-5" />
                 Contact for Media Inquiries

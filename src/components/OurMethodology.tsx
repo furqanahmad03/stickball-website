@@ -185,33 +185,37 @@ export default function OurMethodology() {
                 <div className="space-y-6">
                   {/* Passive Methods */}
                   <div className="flex items-center gap-6 p-6 bg-gradient-to-r from-red-50/50 to-red-100/30 dark:from-red-900/30 dark:to-red-800/30 rounded-2xl border border-red-200/30 dark:border-red-700/30">
-                    <div className="w-4 h-4 bg-gradient-to-r from-red-500 to-red-600 rounded-full animate-pulse"></div>
-                    <div className="flex-1">
-                      <p className="text-xl text-gray-800 dark:text-gray-200 font-semibold">
-                        Passive methods alone result in retention as low as
-                        <span className="text-red-600 dark:text-red-400 font-bold text-2xl ml-2">
-                          5–10%
-                        </span>
-                      </p>
-                    </div>
-                    <div className="w-16 h-16 bg-gradient-to-br from-red-100 to-red-200 dark:from-red-800 dark:to-red-700 rounded-2xl flex items-center justify-center">
-                      <BookOpen className="h-8 w-8 text-red-600 dark:text-red-400" />
+                    <div className="w-4 h-4 bg-gradient-to-r from-red-500 to-red-600 rounded-full animate-pulse hidden md:block"></div>
+                    <div className="flex flex-1 justify-between items-center flex-col-reverse md:flex-row gap-6">
+                      <div className="flex-1">
+                        <p className="text-xl text-gray-800 dark:text-gray-200 font-semibold">
+                          Passive methods alone result in retention as low as
+                          <span className="text-red-600 dark:text-red-400 font-bold text-2xl ml-2">
+                            5–10%
+                          </span>
+                        </p>
+                      </div>
+                      <div className="w-16 h-16 bg-gradient-to-br from-red-100 to-red-200 dark:from-red-800 dark:to-red-700 rounded-2xl flex items-center justify-center">
+                        <BookOpen className="h-8 w-8 text-red-600 dark:text-red-400" />
+                      </div>
                     </div>
                   </div>
 
                   {/* Active Methods */}
                   <div className="flex items-center gap-6 p-6 bg-gradient-to-r from-green-50/50 to-green-100/30 dark:from-green-900/30 dark:to-green-800/30 rounded-2xl border border-green-200/30 dark:border-green-700/30">
-                    <div className="w-4 h-4 bg-gradient-to-r from-green-500 to-green-600 rounded-full animate-pulse"></div>
-                    <div className="flex-1">
-                      <p className="text-xl text-gray-800 dark:text-gray-200 font-semibold">
-                        Active methods can boost retention up to
-                        <span className="text-green-600 dark:text-green-400 font-bold text-2xl ml-2">
-                          90%+
-                        </span>
-                      </p>
-                    </div>
-                    <div className="w-16 h-16 bg-gradient-to-br from-green-100 to-green-200 dark:from-green-800 dark:to-green-700 rounded-2xl flex items-center justify-center">
-                      <Target className="h-8 w-8 text-green-600 dark:text-green-400" />
+                    <div className="w-4 h-4 bg-gradient-to-r from-green-500 to-green-600 rounded-full animate-pulse hidden md:block"></div>
+                    <div className="flex flex-1 justify-between items-center flex-col-reverse md:flex-row gap-6">
+                      <div className="flex-1">
+                        <p className="text-xl text-gray-800 dark:text-gray-200 font-semibold">
+                          Active methods can boost retention up to
+                          <span className="text-green-600 dark:text-green-400 font-bold text-2xl ml-2">
+                            90%+
+                          </span>
+                        </p>
+                      </div>
+                      <div className="w-16 h-16 bg-gradient-to-br from-green-100 to-green-200 dark:from-green-800 dark:to-green-700 rounded-2xl flex items-center justify-center">
+                        <Target className="h-8 w-8 text-green-600 dark:text-green-400" />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -270,7 +274,7 @@ export default function OurMethodology() {
                 <div
                   className={`${
                     index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-                  } flex flex-col lg:flex-row items-center gap-16`}
+                  } flex flex-col-reverse lg:flex-row items-center gap-16`}
                 >
                   {/* Content Side */}
                   <motion.div
@@ -457,7 +461,7 @@ export default function OurMethodology() {
               </p>
               <motion.button
                 whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-10 py-4 rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-200 flex items-center gap-3 mx-auto"
+                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 sm:px-10 py-4 rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-200 flex items-center gap-3 mx-auto"
                 onClick={() => router.push("/contact")}
               >
                 Request a Demo

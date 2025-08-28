@@ -111,18 +111,18 @@ export default function Testimonials() {
                   </blockquote>
 
                   {/* Author Info */}
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-start gap-4">
                     {/* Icon Container */}
-                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${colorVariants[testimonial.color as keyof typeof colorVariants].icon} flex items-center justify-center shadow-lg`}>
+                    <div className={`flex-shrink-0 w-16 h-16 rounded-2xl bg-gradient-to-br ${colorVariants[testimonial.color as keyof typeof colorVariants].icon} flex items-center justify-center shadow-lg`}>
                       <testimonial.icon className="h-8 w-8 text-white" />
                     </div>
 
                     {/* Author Details */}
-                    <div>
+                    <div className="flex-1 min-w-0">
                       <h4 className="font-bold text-gray-900 dark:text-white text-xl mb-1">
                         {testimonial.author}
                       </h4>
-                      <p className={`text-lg ${colorVariants[testimonial.color as keyof typeof colorVariants].accent} font-semibold`}>
+                      <p className={`text-lg ${colorVariants[testimonial.color as keyof typeof colorVariants].accent} font-semibold break-words`}>
                         {testimonial.title}
                       </p>
                     </div>
@@ -152,7 +152,7 @@ export default function Testimonials() {
               See how Stickball can transform learning in your institution or community.
             </p>
             <button
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-10 py-4 rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 inline-flex items-center gap-3"
+              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 sm:px-10 py-4 text-lg rounded-full font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 inline-flex items-center gap-3"
               onClick={() => router.push("/contact")}
             >
               Start Your Partnership Today

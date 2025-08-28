@@ -151,7 +151,7 @@ export default function WhoWeServe() {
             <motion.button
               whileTap={{ scale: 0.95 }}
               onClick={() => router.push("/contact")}
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-10 py-4 rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-200 inline-flex items-center gap-3"
+              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 sm:px-10 py-4 text-xs sm:text-sm md:text-lg rounded-full font-semibold shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-200 inline-flex items-center gap-3"
             >
               Click here to book a demo
               <ChevronRight className="h-5 w-5" />
