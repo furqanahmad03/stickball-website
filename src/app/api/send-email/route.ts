@@ -7,7 +7,7 @@ const emailConfig = {
   port: parseInt(process.env.EMAIL_PORT || "587"),
   secure: false, // true for 465, false for other ports
   auth: {
-    user: process.env.EMAIL_USER || "hfurqan.ai@gmail.com",
+    user: process.env.EMAIL_USER || "",
     pass: process.env.EMAIL_PASS || "",
   },
 };
@@ -42,8 +42,8 @@ export async function POST(request: NextRequest) {
 
     // Prepare email content
     const mailOptions = {
-      from: process.env.EMAIL_FROM || "hfurqan.ai@gmail.com",
-      to: process.env.EMAIL_TO || "hfurqan.se@gmail.com",
+      from: process.env.EMAIL_FROM || "",
+      to: process.env.EMAIL_TO || "",
       subject: "[Stickball Contact] New Contact Form Submission",
       html: `
         <!DOCTYPE html>
