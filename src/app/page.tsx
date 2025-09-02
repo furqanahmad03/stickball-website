@@ -1,21 +1,6 @@
-import CallToAction from "@/components/CallToAction";
-import HeroSection from "@/components/HeroSection";
-import FeatureTiles from "@/components/FeatureTiles";
-import OurMethodology from "@/components/OurMethodology";
-import PressHighlights from "@/components/PressHighlights";
-import Testimonials from "@/components/Testimonials";
-import WhoWeServe from "@/components/WhoWeServe";
+import { redirect } from 'next/navigation';
 
-export default function Home() {
-  return (
-    <>
-      <HeroSection />
-      <FeatureTiles />
-      <OurMethodology />
-      <WhoWeServe />
-      <PressHighlights />
-      <Testimonials />
-      <CallToAction />
-    </>
-  );
+export default function RootPage() {
+  // Redirect to default locale
+  redirect('/en');
 }

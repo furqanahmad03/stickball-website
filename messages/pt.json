@@ -1,0 +1,11 @@
+{
+  "navigation": {
+    "home": "Início",
+    "about": "Sobre",
+    "contact": "Contato"
+  },
+  "common": {
+    "welcome": "Bem-vindo ao Stickball",
+    "learnMore": "Saiba Mais"
+  }
+}
