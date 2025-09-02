@@ -7,21 +7,22 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useTheme } from "@/contexts/ThemeContext";
+import { useTranslations, useLocale } from "next-intl";
 import LanguageSelector from "./LanguageSelector";
 
 const navigationItems = [
   {
-    name: "Home",
+    nameKey: "navigation.home",
     href: "/",
     current: true
   },
   {
-    name: "About",
+    nameKey: "navigation.about",
     href: "/about",
     current: false
   },
   {
-    name: "Contact",
+    nameKey: "navigation.contact",
     href: "/contact",
     current: false
   }
@@ -32,7 +33,8 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const currentPath = usePathname();
   const { theme, toggleTheme } = useTheme();
-
+  const t = useTranslations();
+  const locale = useLocale();
   // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
@@ -82,14 +84,14 @@ export default function Navbar() {
               const isActive = currentPath === item.href;
               return (
                 <Link
-                  key={item.name}
-                  href={item.href}
+                  key={item.nameKey}
+                  href={`/${locale}${item.href}`}
                   className={`relative text-sm px-4 py-2 font-bold transition-all duration-300 group ${isActive
                       ? 'text-[rgb(97,109,237)]'
                       : 'text-gray-900 hover:text-[rgb(97,109,237)] dark:text-gray-100 dark:hover:text-[rgb(97,109,237)]'
                     }`}
                 >
-                  {item.name}
+                  {t(item.nameKey)}
                   {/* Sliding underline */}
                   <span className={`absolute bottom-0 left-0 h-0.5 bg-[rgb(97,109,237)] transition-all duration-300 ease-out ${isActive
                       ? 'w-full'
@@ -108,7 +110,7 @@ export default function Navbar() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="p-2 rounded-md text-gray-900 hover:text-[rgb(97,109,237)] dark:text-gray-100 dark:hover:text-[rgb(97,109,237)] transition-colors duration-300 hover:bg-[rgba(97,109,237,0.1)] dark:hover:bg-[rgba(97,109,237,0.1)]"
-              aria-label="Toggle dark mode"
+              aria-label={t("navbar.toggleDarkMode")}
             >
               {theme === "dark" ? (
                 <Sun className="h-5 w-5" />
@@ -127,6 +129,7 @@ export default function Navbar() {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="p-2 rounded-md text-gray-900 hover:text-[rgb(97,109,237)] dark:text-gray-100 dark:hover:text-[rgb(97,109,237)] transition-colors duration-300 hover:bg-[rgba(97,109,237,0.1)] dark:hover:bg-[rgba(97,109,237,0.1)]"
+              aria-label={isOpen ? t("navbar.closeMenu") : t("navbar.toggleMenu")}
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -149,14 +152,14 @@ export default function Navbar() {
                 const isActive = currentPath === item.href;
                 return (
                   <Link
-                    key={item.name}
-                    href={item.href}
+                    key={item.nameKey}
+                    href={`/${locale}${item.href}`}
                     className={`relative block px-3 py-2 text-base font-bold rounded-md transition-colors duration-200 group ${isActive
                         ? 'text-[rgb(97,109,237)] bg-[rgba(97,109,237,0.1)] border-[rgb(97,109,237)]'
                         : 'text-gray-900 hover:text-[rgb(97,109,237)] hover:bg-[rgba(97,109,237,0.1)] dark:text-gray-100 dark:hover:bg-[rgba(97,109,237,0.1)]'
                       }`}
                   >
-                    {item.name}
+                    {t(item.nameKey)}
                     {/* Sliding underline for mobile */}
                     <span className={`absolute bottom-0 left-0 h-0.5 bg-[rgb(97,109,237)] transition-all duration-300 ease-out ${isActive
                         ? 'w-full'
@@ -175,12 +178,12 @@ export default function Navbar() {
                   {theme === "dark" ? (
                     <>
                       <Sun className="h-5 w-5" />
-                      Light Mode
+                      {t("navbar.lightMode")}
                     </>
                   ) : (
                     <>
                       <Moon className="h-5 w-5" />
-                      Dark Mode
+                      {t("navbar.darkMode")}
                     </>
                   )}
                 </button>

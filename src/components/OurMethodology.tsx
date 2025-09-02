@@ -9,49 +9,32 @@ import {
   CheckCircle,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useTranslations, useLocale } from "next-intl";
 
 const methodologySteps = [
   {
-    phase: "LEARN",
-    retention: "~10–30% Retention",
+    phaseKey: "methodology.steps.learn.phase",
+    retentionKey: "methodology.steps.learn.retention",
+    descriptionKey: "methodology.steps.learn.description",
+    featuresKey: "methodology.steps.learn.features",
     icon: BookOpen,
     color: "blue",
-    description:
-      "Introduces key concepts through highly engaging content. This foundational layer supports comprehension across a wide range of learning styles.",
-    features: [
-      "Short-form videos",
-      "Audio lessons, podcasts, and scenarios",
-      "Easy-to-digest text, targeted by reading level",
-      "Built-in accessibility with translation for any language",
-    ],
   },
   {
-    phase: "PRACTICE",
-    retention: "~30–75% Retention",
+    phaseKey: "methodology.steps.practice.phase",
+    retentionKey: "methodology.steps.practice.retention",
+    descriptionKey: "methodology.steps.practice.description",
+    featuresKey: "methodology.steps.practice.features",
     icon: FlaskConical,
     color: "green",
-    description:
-      "Build skills and confidence through interactive, adaptive activities that require active decision-making.",
-    features: [
-      "Minigames and digital challenges",
-      "Scenario-based quizzes",
-      "Personalized practice tasks",
-      "Community relevant exercises",
-    ],
   },
   {
-    phase: "APPLY",
-    retention: "~90%+ Retention",
+    phaseKey: "methodology.steps.apply.phase",
+    retentionKey: "methodology.steps.apply.retention",
+    descriptionKey: "methodology.steps.apply.description",
+    featuresKey: "methodology.steps.apply.features",
     icon: Target,
     color: "purple",
-    description:
-      "Reinforces knowledge through realistic, high-stakes simulations, leading to real confidence and outcomes.",
-    features: [
-      "AI-powered live interactions and decision-making simulations",
-      "VR/AR-enhanced scenarios",
-      "Community and workplace roleplays",
-      "Projects that require learners to explain or act on what they&apos;ve learned",
-    ],
   },
 ];
 
@@ -88,7 +71,10 @@ const colorVariants = {
 };
 
 export default function OurMethodology() {
+  const locale = useLocale();
   const router = useRouter();
+  const t = useTranslations();
+  
   return (
     <>
       <section className="pt-24 bg-gradient-to-br from-slate-50 via-white to-blue-50/30 dark:from-background dark:via-[#1c1c1c] dark:to-[#2c2c2c] relative overflow-hidden">
@@ -116,7 +102,7 @@ export default function OurMethodology() {
               className="inline-block mb-2"
             >
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent text-lg font-semibold tracking-wider uppercase">
-                Our Approach
+                {t("methodology.approach")}
               </span>
             </motion.div>
 
@@ -128,7 +114,7 @@ export default function OurMethodology() {
                 transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
                 className="inline-block"
               >
-                Our Methodology:&nbsp;
+                {t("methodology.title")}&nbsp;
               </motion.div>
               <div className="inline-block">
                 <motion.span
@@ -138,7 +124,7 @@ export default function OurMethodology() {
                   transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
                   className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
                 >
-                  Learn.
+                  {t("methodology.learn")}
                 </motion.span>
                 <motion.span
                   initial={{ opacity: 0, y: 20 }}
@@ -147,7 +133,7 @@ export default function OurMethodology() {
                   transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
                   className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent ml-4"
                 >
-                  Practice.
+                  {t("methodology.practice")}
                 </motion.span>
                 <motion.span
                   initial={{ opacity: 0, y: 20 }}
@@ -156,7 +142,7 @@ export default function OurMethodology() {
                   transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
                   className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent ml-4"
                 >
-                  Apply.
+                  {t("methodology.apply")}
                 </motion.span>
               </div>
             </h2>
@@ -169,10 +155,7 @@ export default function OurMethodology() {
               className="max-w-5xl mx-auto space-y-8"
             >
               <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 leading-relaxed">
-                At Stickball, we design learning experiences that actually
-                stick. Our research-backed approach is grounded in the widely
-                recognized Learning Pyramid, which demonstrates that different
-                learning methods lead to very different levels of retention.
+                {t("methodology.description")}
               </p>
 
               <motion.div
@@ -189,7 +172,7 @@ export default function OurMethodology() {
                     <div className="flex flex-1 justify-between items-center flex-col-reverse md:flex-row gap-6">
                       <div className="flex-1">
                         <p className="text-xl text-gray-800 dark:text-gray-200 font-semibold">
-                          Passive methods alone result in retention as low as
+                          {t("methodology.passiveMethods")}
                           <span className="text-red-600 dark:text-red-400 font-bold text-2xl ml-2">
                             5–10%
                           </span>
@@ -207,7 +190,7 @@ export default function OurMethodology() {
                     <div className="flex flex-1 justify-between items-center flex-col-reverse md:flex-row gap-6">
                       <div className="flex-1">
                         <p className="text-xl text-gray-800 dark:text-gray-200 font-semibold">
-                          Active methods can boost retention up to
+                          {t("methodology.activeMethods")}
                           <span className="text-green-600 dark:text-green-400 font-bold text-2xl ml-2">
                             90%+
                           </span>
@@ -228,9 +211,7 @@ export default function OurMethodology() {
                 transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
                 className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 leading-relaxed"
               >
-                That&apos;s why Stickball&apos;s methodology is built to move
-                learners down the pyramid. From understanding concepts to
-                applying them in real life.
+                {t("methodology.conclusion")}
               </motion.p>
             </motion.div>
           </motion.div>
@@ -249,7 +230,7 @@ export default function OurMethodology() {
           <div className="space-y-20">
             {methodologySteps.map((step, index) => (
               <motion.div
-                key={step.phase}
+                key={step.phaseKey}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
@@ -302,7 +283,7 @@ export default function OurMethodology() {
                         </motion.div>
                         <div>
                           <h3 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-2">
-                            {step.phase}
+                            {t(step.phaseKey)}
                           </h3>
                           <p
                             className={`text-xl font-semibold ${
@@ -311,17 +292,17 @@ export default function OurMethodology() {
                               ].accent
                             }`}
                           >
-                            {step.retention}
+                            {t(step.retentionKey)}
                           </p>
                         </div>
                       </div>
 
                       <p className="text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
-                        {step.description}
+                        {t(step.descriptionKey)}
                       </p>
 
                       <ul className="space-y-4">
-                        {step.features.map((feature, featureIndex) => (
+                        {t.raw(step.featuresKey).map((feature: string, featureIndex: number) => (
                           <motion.li
                             key={feature}
                             initial={{ opacity: 0, x: -20 }}
@@ -382,7 +363,7 @@ export default function OurMethodology() {
                           whileHover={{ scale: 1.05, rotate: 2 }}
                           className="w-48 h-48 mx-auto relative"
                         >
-                          {step.phase === "LEARN" && (
+                          {step.phaseKey === "methodology.steps.learn.phase" && (
                             <motion.img
                               src="/learn.svg"
                               alt="Learn"
@@ -397,7 +378,7 @@ export default function OurMethodology() {
                               viewport={{ once: true, margin: "-100px" }}
                             />
                           )}
-                          {step.phase === "PRACTICE" && (
+                          {step.phaseKey === "methodology.steps.practice.phase" && (
                             <motion.img
                               src="/practice.svg"
                               alt="Practice"
@@ -412,7 +393,7 @@ export default function OurMethodology() {
                               viewport={{ once: true, margin: "-100px" }}
                             />
                           )}
-                          {step.phase === "APPLY" && (
+                          {step.phaseKey === "methodology.steps.apply.phase" && (
                             <motion.img
                               src="/apply.svg"
                               alt="Apply"
@@ -432,7 +413,7 @@ export default function OurMethodology() {
                         <div className="space-y-3">
                           {/* <h4 className="text-2xl font-bold text-gray-800">{step.phase}</h4> */}
                           <p className="text-lg text-gray-600 dark:text-gray-300 font-medium">
-                            {step.retention}
+                            {t(step.retentionKey)}
                           </p>
                         </div>
                       </div>
@@ -453,18 +434,17 @@ export default function OurMethodology() {
           >
             <motion.div className="bg-gradient-to-r from-white to-blue-50/50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-700 p-12 rounded-3xl shadow-2xl border border-white/50 dark:border-gray-700 backdrop-blur-sm max-w-5xl mx-auto hover:scale-[1.02] transition-all duration-300">
               <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-                Ready to Experience the Learning Pyramid in Action?
+                {t("methodology.ctaTitle")}
               </h3>
               <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
-                See how our methodology transforms passive learning into active,
-                engaging experiences that stick.
+                {t("methodology.ctaDescription")}
               </p>
               <motion.button
                 whileTap={{ scale: 0.95 }}
                 className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 sm:px-10 py-4 rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-200 flex items-center gap-3 mx-auto"
-                onClick={() => router.push("/contact")}
+                onClick={() => router.push(`/${locale}/contact`)}
               >
-                Request a Demo
+                {t("methodology.ctaButton")}
                 <ArrowRight className="h-5 w-5" />
               </motion.button>
             </motion.div>

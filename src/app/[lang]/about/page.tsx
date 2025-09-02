@@ -18,42 +18,43 @@ import {
   Sparkles
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { useTranslations } from "next-intl";
 
 const keyFeatures = [
   {
     icon: GraduationCap,
-    title: "Education Technology",
-    description: "Leading platform for financial literacy and workforce readiness",
+    titleKey: "about.features.educationTechnology.title",
+    descriptionKey: "about.features.educationTechnology.description",
     color: "blue"
   },
   {
     icon: Users,
-    title: "Community-Centered",
-    description: "Developed collaboratively with community members",
+    titleKey: "about.features.communityCentered.title",
+    descriptionKey: "about.features.communityCentered.description",
     color: "green"
   },
   {
     icon: Globe,
-    title: "Multi-Language",
-    description: "Accessible to diverse populations worldwide",
+    titleKey: "about.features.multiLanguage.title",
+    descriptionKey: "about.features.multiLanguage.description",
     color: "purple"
   },
   {
     icon: Target,
-    title: "Personalized Learning",
-    description: "Adaptive paths tailored to individual needs",
+    titleKey: "about.features.personalizedLearning.title",
+    descriptionKey: "about.features.personalizedLearning.description",
     color: "orange"
   },
   {
     icon: Heart,
-    title: "Inclusive Design",
-    description: "Serves individuals of all abilities and backgrounds",
+    titleKey: "about.features.inclusiveDesign.title",
+    descriptionKey: "about.features.inclusiveDesign.description",
     color: "red"
   },
   {
     icon: Zap,
-    title: "Fast Implementation",
-    description: "Quick deployment with lasting community impact",
+    titleKey: "about.features.fastImplementation.title",
+    descriptionKey: "about.features.fastImplementation.description",
     color: "yellow"
   }
 ];
@@ -61,25 +62,25 @@ const keyFeatures = [
 const impactStats = [
   {
     number: "10+",
-    label: "States Served",
+    labelKey: "about.stats.statesServed",
     icon: MapPin,
     color: "blue"
   },
   {
     number: "1000+",
-    label: "Learners Impacted",
+    labelKey: "about.stats.learnersImpacted",
     icon: Users,
     color: "green"
   },
   {
     number: "50+",
-    label: "Community Partners",
+    labelKey: "about.stats.communityPartners",
     icon: Handshake,
     color: "purple"
   },
   {
     number: "95%",
-    label: "Satisfaction Rate",
+    labelKey: "about.stats.satisfactionRate",
     icon: Star,
     color: "yellow"
   }
@@ -121,6 +122,8 @@ const colorVariants = {
 
 
 export default function AboutPage() {
+  const t = useTranslations();
+  
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white mt-10 to-blue-50/30 dark:from-[#2c2c2c] dark:via-[#1c1c1c] dark:to-background">
       {/* Hero Section */}
@@ -147,7 +150,7 @@ export default function AboutPage() {
             >
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent text-lg font-semibold tracking-wider uppercase inline-flex items-center gap-2">
                 <Sparkles className="h-5 w-5" />
-                Our Story
+                {t("about.ourStory")}
               </span>
             </motion.div>
 
@@ -157,7 +160,7 @@ export default function AboutPage() {
               transition={{ duration: 0.7, delay: 0.4 }}
               className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white leading-tight"
             >
-              About <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Stickball</span>
+              {t("about.title")} <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">{t("about.titleHighlight")}</span>
             </motion.h1>
             
             <motion.p 
@@ -166,7 +169,7 @@ export default function AboutPage() {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 max-w-5xl mx-auto leading-relaxed"
             >
-              Empowering communities through innovative education technology that actually sticks.
+              {t("about.subtitle")}
             </motion.p>
           </motion.div>
         </div>
@@ -206,7 +209,7 @@ export default function AboutPage() {
               transition={{ duration: 0.6 }}
               className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-8"
             >
-              Our Mission
+              {t("about.mission")}
             </motion.h2>
             
             <motion.p 
@@ -216,10 +219,7 @@ export default function AboutPage() {
               transition={{ duration: 0.6 }}
               className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 leading-relaxed max-w-5xl mx-auto"
             >
-              Stickball is a leading education technology platform dedicated to promoting financial literacy 
-              and workforce readiness, with a growing footprint across 10 states. With interactive lessons 
-              and personalized guidance, Stickball empowers students and professionals to make informed 
-              financial decisions through community-centered solutions.
+              {t("about.missionDescription")}
             </motion.p>
           </motion.div>
         </motion.div>
@@ -240,17 +240,17 @@ export default function AboutPage() {
             className="text-center mb-16"
           >
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent text-lg font-semibold tracking-wider uppercase mb-4 inline-block">
-              What Makes Us Different
+              {t("about.whatMakesUsDifferent")}
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
-              Core <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Strengths</span>
+              {t("about.coreStrengths")} <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">{t("about.coreStrengthsHighlight")}</span>
             </h2>
           </motion.div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {keyFeatures.map((feature, index) => (
               <motion.div
-                key={feature.title}
+                key={feature.titleKey}
                 initial={{ opacity: 0, y: 30, scale: 0.9 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true, margin: "-50px" }}
@@ -269,10 +269,10 @@ export default function AboutPage() {
                       <feature.icon className="h-10 w-10 text-white" />
                     </motion.div>
                     <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                      {feature.title}
+                      {t(feature.titleKey)}
                     </h3>
                     <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
-                      {feature.description}
+                      {t(feature.descriptionKey)}
                     </p>
                   </CardContent>
                 </Card>
@@ -297,17 +297,17 @@ export default function AboutPage() {
             className="text-center mb-16"
           >
             <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent text-lg font-semibold tracking-wider uppercase mb-4 inline-block">
-              Our Reach
+              {t("about.ourReach")}
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
-              Measurable <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">Impact</span>
+              {t("about.measurableImpact")} <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">{t("about.measurableImpactHighlight")}</span>
             </h2>
           </motion.div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {impactStats.map((stat, index) => (
               <motion.div
-                key={stat.label}
+                key={stat.labelKey}
                 initial={{ opacity: 0, y: 30, scale: 0.9 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true, margin: "-50px" }}
@@ -329,7 +329,7 @@ export default function AboutPage() {
                       {stat.number}
                     </div>
                     <p className="text-gray-600 dark:text-gray-300 font-semibold text-lg">
-                      {stat.label}
+                      {t(stat.labelKey)}
                     </p>
                   </CardContent>
                 </Card>
@@ -361,10 +361,10 @@ export default function AboutPage() {
               className="text-center mb-12"
             >
               <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent text-lg font-semibold tracking-wider uppercase mb-4 inline-block">
-                Our Methodology
+                {t("about.ourMethodology")}
               </span>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
-                Strategic <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Approach</span>
+                {t("about.strategicApproach")} <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">{t("about.strategicApproachHighlight")}</span>
               </h2>
             </motion.div>
             
@@ -388,12 +388,10 @@ export default function AboutPage() {
                   </motion.div>
                   <div>
                     <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
-                      Community-Driven Development
+                      {t("about.methodology.communityDriven.title")}
                     </h3>
                     <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg">
-                      The platform blends interactive simulations with personalized learning paths to build 
-                      essential life and workplace skills, with everything developed collaboratively with 
-                      community members and continuously adapted based on their feedback.
+                      {t("about.methodology.communityDriven.description")}
                     </p>
                   </div>
                 </motion.div>
@@ -416,11 +414,10 @@ export default function AboutPage() {
                   </motion.div>
                   <div>
                     <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
-                      Inclusive Design
+                      {t("about.methodology.inclusiveDesign.title")}
                     </h3>
                     <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg">
-                      Stickball&apos;s inclusive design serves individuals of all abilities and backgrounds, 
-                      with multi-language accessibility ensuring the program serves diverse populations.
+                      {t("about.methodology.inclusiveDesign.description")}
                     </p>
                   </div>
                 </motion.div>
@@ -445,11 +442,10 @@ export default function AboutPage() {
                   </motion.div>
                   <div>
                     <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
-                      Bottom-Up Strategy
+                      {t("about.methodology.bottomUpStrategy.title")}
                     </h3>
                     <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg">
-                      The company&apos;s bottom-up approach ensures that educational tools remain in communities 
-                      for life, creating lasting impact through sustained local partnerships.
+                      {t("about.methodology.bottomUpStrategy.description")}
                     </p>
                   </div>
                 </motion.div>
@@ -472,11 +468,10 @@ export default function AboutPage() {
                   </motion.div>
                   <div>
                     <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
-                      Lasting Impact
+                      {t("about.methodology.lastingImpact.title")}
                     </h3>
                     <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg">
-                      By focusing on community needs and building sustainable partnerships, we create 
-                      educational solutions that grow and evolve with the communities they serve.
+                      {t("about.methodology.lastingImpact.description")}
                     </p>
                   </div>
                 </motion.div>

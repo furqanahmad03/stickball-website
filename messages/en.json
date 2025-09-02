@@ -4,6 +4,341 @@
     "about": "About",
     "contact": "Contact"
   },
+  "navbar": {
+    "toggleMenu": "Toggle menu",
+    "toggleDarkMode": "Toggle dark mode",
+    "closeMenu": "Close menu",
+    "lightMode": "Light Mode",
+    "darkMode": "Dark Mode"
+  },
+  "languageSelector": {
+    "selectLanguage": "Select language",
+    "currentLanguage": "Current language"
+  },
+  "hero": {
+    "headline1": "Lessons that Stick.",
+    "headline2": "Impact that Lasts.",
+    "subheadline": "Stickball is a community-centered, AI-enabled learning platform that helps schools, employers, and communities build lasting skills targeted to the needs of every learner. Fast to deploy, customizable for any audience, and proven to deliver measurable impact.",
+    "ctaButton": "Book a Demo",
+    "altText": "Stickball Hero Section"
+  },
+  "featureTiles": {
+    "title": "Why Choose Stickball?",
+    "subtitle": "Our platform is designed with flexibility and accessibility in mind, ensuring every learner gets the support they need to succeed.",
+    "ctaText": "Ready to see these features in action?",
+    "ctaButton": "Get Started Today",
+    "features": {
+      "customizable": {
+        "title": "Customizable for Every Learner",
+        "description": "Tailored at the community, classroom, or individual level"
+      },
+      "fastDeploy": {
+        "title": "Fast to Deploy",
+        "description": "Launch in a matter of days, with no IT overhead"
+      },
+      "anyLanguage": {
+        "title": "Available in Any Language",
+        "description": "Designed to reflect the language and culture of every learner"
+      },
+      "accessible": {
+        "title": "Accessible by Design",
+        "description": "Built for learners with diverse needs and abilities"
+      },
+      "mobileFriendly": {
+        "title": "Mobile-Friendly",
+        "description": "Runs on any device, no app required"
+      }
+    }
+  },
+  "methodology": {
+    "approach": "Our Approach",
+    "title": "Our Methodology:",
+    "learn": "Learn.",
+    "practice": "Practice.",
+    "apply": "Apply.",
+    "description": "At Stickball, we design learning experiences that actually stick. Our research-backed approach is grounded in the widely recognized Learning Pyramid, which demonstrates that different learning methods lead to very different levels of retention.",
+    "passiveMethods": "Passive methods alone result in retention as low as",
+    "activeMethods": "Active methods can boost retention up to",
+    "conclusion": "That's why Stickball's methodology is built to move learners down the pyramid. From understanding concepts to applying them in real life.",
+    "ctaTitle": "Ready to Experience the Learning Pyramid in Action?",
+    "ctaDescription": "See how our methodology transforms passive learning into active, engaging experiences that stick.",
+    "ctaButton": "Request a Demo",
+    "steps": {
+      "learn": {
+        "phase": "LEARN",
+        "retention": "~10–30% Retention",
+        "description": "Introduces key concepts through highly engaging content. This foundational layer supports comprehension across a wide range of learning styles.",
+        "features": [
+          "Short-form videos",
+          "Audio lessons, podcasts, and scenarios",
+          "Easy-to-digest text, targeted by reading level",
+          "Built-in accessibility with translation for any language"
+        ]
+      },
+      "practice": {
+        "phase": "PRACTICE",
+        "retention": "~30–75% Retention",
+        "description": "Build skills and confidence through interactive, adaptive activities that require active decision-making.",
+        "features": [
+          "Minigames and digital challenges",
+          "Scenario-based quizzes",
+          "Personalized practice tasks",
+          "Community relevant exercises"
+        ]
+      },
+      "apply": {
+        "phase": "APPLY",
+        "retention": "~90%+ Retention",
+        "description": "Reinforces knowledge through realistic, high-stakes simulations, leading to real confidence and outcomes.",
+        "features": [
+          "AI-powered live interactions and decision-making simulations",
+          "VR/AR-enhanced scenarios",
+          "Community and workplace roleplays",
+          "Projects that require learners to explain or act on what they've learned"
+        ]
+      }
+    }
+  },
+  "whoWeServe": {
+    "audience": "Our Audience",
+    "title": "Built to Serve",
+    "titleHighlight": "All Learners",
+    "subtitle": "From classrooms to boardrooms, from city halls to community centers - Stickball adapts to serve every learning environment and audience.",
+    "ctaTitle": "Want to know how Stickball can work for your community?",
+    "ctaDescription": "Let's discuss your specific needs and show you how our platform can be tailored to serve your learners.",
+    "ctaButton": "Click here to book a demo",
+    "audiences": {
+      "schools": {
+        "title": "Schools & Educators",
+        "description": "Turnkey classroom solutions and supplemental programs"
+      },
+      "communities": {
+        "title": "Communities and Cities",
+        "description": "Equip communities with life and career skills that improve access to knowledge, strengthen competitiveness, and build local capacity."
+      },
+      "employers": {
+        "title": "Employers & Workforce Programs",
+        "description": "Upskill employees and jobseekers with highly targeted job-ready training"
+      },
+      "banks": {
+        "title": "Banks and Credit Unions",
+        "description": "Out-of-the-box Community Reinvestment Act (CRA) compliance, with measurable local impact in LMI communities"
+      },
+      "sponsors": {
+        "title": "Community Sponsors",
+        "description": "Reach individuals directly where they live and work, with programs that reflect their unique languages, cultures, and needs"
+      }
+    }
+  },
+  "pressHighlights": {
+    "mediaCoverage": "Media Coverage",
+    "title": "Stickball",
+    "titleHighlight": "In the Press",
+    "subtitle": "Discover how media outlets and partners are covering our mission to transform financial literacy and workforce development across communities.",
+    "ctaTitle": "Get Press Resources & Media Information",
+    "ctaDescription": "Download our press kit for media coverage or get in touch for interviews and inquiries.",
+    "downloadPressKit": "Download Press Kit",
+    "contactMedia": "Contact for Media Inquiries",
+    "items": {
+      "everett": {
+        "title": "Everett High School Partners with Stickball for Financial Literacy",
+        "source": "8 News Now",
+        "excerpt": "Partnership brings innovative financial education to local students",
+        "action": "Read Full Article"
+      },
+      "demo": {
+        "title": "Stickball Financial Literacy Platform Demo",
+        "source": "YouTube",
+        "excerpt": "See our platform in action with real-world examples",
+        "action": "Watch Video"
+      },
+      "bellwether": {
+        "title": "Bellwether Community Credit Union & Stickball Partnership",
+        "source": "BCCU Blog",
+        "excerpt": "Strengthening communities through financial education",
+        "action": "Read Full Blog"
+      },
+      "sahal": {
+        "title": "Sahal Laher: Top AI Influencer Transforming the Future",
+        "source": "CIO Look Media",
+        "excerpt": "Recognized for innovation in AI-powered education technology",
+        "action": "Read Full Article"
+      },
+      "brookline": {
+        "title": "Brookline Bank & Stickball: Innovative Financial Literacy Platforms",
+        "source": "Brookline Bank",
+        "excerpt": "Serving customers and underserved communities with cutting-edge solutions",
+        "action": "Read Full Article"
+      }
+    }
+  },
+  "testimonials": {
+    "successStories": "Success Stories",
+    "title": "What Our",
+    "titleHighlight": "Partners Are Saying",
+    "subtitle": "Hear directly from educators and community leaders about the impact Stickball is making in their institutions and communities.",
+    "ctaTitle": "Join Our Growing Network of Partners",
+    "ctaDescription": "See how Stickball can transform learning in your institution or community.",
+    "ctaButton": "Start Your Partnership Today",
+    "items": {
+      "alfred": {
+        "quote": "The engaging content and real-life scenarios help students understand finance and build confidence.",
+        "author": "Alfred Daviso, Ph.D",
+        "title": "Akron University"
+      },
+      "jenn": {
+        "quote": "Our students thrive when we connect learning with real-world experiences... Thanks to Bellwether Community Credit Union and Stickball, we're giving students a fun, hands-on way to build confidence, collaboration, and essential life skills.",
+        "author": "Dr. Jenn Chmiel",
+        "title": "Superintendent of Manchester School District"
+      }
+    }
+  },
+  "callToAction": {
+    "badge": "Ready to Transform Learning?",
+    "title": "Bring Stickball to Your",
+    "titleHighlight": "Community",
+    "description": "We'd love to show you how Stickball can serve your learners, your community, or your organization. Let's talk about your goals and how we can help.",
+    "ctaButton": "Request a Demo",
+    "benefits": {
+      "communityImpact": {
+        "title": "Community Impact",
+        "description": "Transform learning outcomes across your entire community"
+      },
+      "measurableResults": {
+        "title": "Measurable Results",
+        "description": "Track progress with data-driven insights and analytics"
+      },
+      "fastImplementation": {
+        "title": "Fast Implementation",
+        "description": "Get up and running in days, not months"
+      }
+    },
+    "trustIndicator": "Trusted by educators, community leaders, and organizations across",
+    "statesCount": "10+ states"
+  },
+  "about": {
+    "ourStory": "Our Story",
+    "title": "About",
+    "titleHighlight": "Stickball",
+    "subtitle": "Empowering communities through innovative education technology that actually sticks.",
+    "mission": "Our Mission",
+    "missionDescription": "Stickball is a leading education technology platform dedicated to promoting financial literacy and workforce readiness, with a growing footprint across 10 states. With interactive lessons and personalized guidance, Stickball empowers students and professionals to make informed financial decisions through community-centered solutions.",
+    "whatMakesUsDifferent": "What Makes Us Different",
+    "coreStrengths": "Core",
+    "coreStrengthsHighlight": "Strengths",
+    "ourReach": "Our Reach",
+    "measurableImpact": "Measurable",
+    "measurableImpactHighlight": "Impact",
+    "ourMethodology": "Our Methodology",
+    "strategicApproach": "Strategic",
+    "strategicApproachHighlight": "Approach",
+    "features": {
+      "educationTechnology": {
+        "title": "Education Technology",
+        "description": "Leading platform for financial literacy and workforce readiness"
+      },
+      "communityCentered": {
+        "title": "Community-Centered",
+        "description": "Developed collaboratively with community members"
+      },
+      "multiLanguage": {
+        "title": "Multi-Language",
+        "description": "Accessible to diverse populations worldwide"
+      },
+      "personalizedLearning": {
+        "title": "Personalized Learning",
+        "description": "Adaptive paths tailored to individual needs"
+      },
+      "inclusiveDesign": {
+        "title": "Inclusive Design",
+        "description": "Serves individuals of all abilities and backgrounds"
+      },
+      "fastImplementation": {
+        "title": "Fast Implementation",
+        "description": "Quick deployment with lasting community impact"
+      }
+    },
+    "stats": {
+      "statesServed": "States Served",
+      "learnersImpacted": "Learners Impacted",
+      "communityPartners": "Community Partners",
+      "satisfactionRate": "Satisfaction Rate"
+    },
+    "methodology": {
+      "communityDriven": {
+        "title": "Community-Driven Development",
+        "description": "The platform blends interactive simulations with personalized learning paths to build essential life and workplace skills, with everything developed collaboratively with community members and continuously adapted based on their feedback."
+      },
+      "inclusiveDesign": {
+        "title": "Inclusive Design",
+        "description": "Stickball's inclusive design serves individuals of all abilities and backgrounds, with multi-language accessibility ensuring the program serves diverse populations."
+      },
+      "bottomUpStrategy": {
+        "title": "Bottom-Up Strategy",
+        "description": "The company's bottom-up approach ensures that educational tools remain in communities for life, creating lasting impact through sustained local partnerships."
+      },
+      "lastingImpact": {
+        "title": "Lasting Impact",
+        "description": "By focusing on community needs and building sustainable partnerships, we create educational solutions that grow and evolve with the communities they serve."
+      }
+    }
+  },
+  "contact": {
+    "title": "Get in",
+    "titleHighlight": "Touch",
+    "subtitle": "Ready to bring Stickball to your community? We'd love to hear from you. Fill out the form below and we'll get back to you within 24 hours.",
+    "contactInfo": {
+      "callUs": {
+        "title": "Call Us",
+        "description": "Speak directly with our team",
+        "details": ["+1 (555) 123-4567", "Mon-Fri: 9AM-6PM EST"]
+      },
+      "visitUs": {
+        "title": "Visit Us",
+        "description": "Schedule an in-person meeting",
+        "details": ["123 Learning Street", "Education District, ED 12345"]
+      },
+      "responseTime": {
+        "title": "Response Time",
+        "description": "We're here when you need us",
+        "details": ["Within 24 hours", "Emergency: Same day"]
+      }
+    },
+    "cta": {
+      "title": "Ready to Get Started?",
+      "description": "Book a demo to see Stickball in action and learn how we can transform learning in your community.",
+      "button": "Book a Demo"
+    }
+  },
+  "emailForm": {
+    "title": "Get in Touch",
+    "subtitle": "Send us a message and we'll respond within 24 hours",
+    "fields": {
+      "name": {
+        "label": "Full Name *",
+        "placeholder": "Enter your full name"
+      },
+      "organization": {
+        "label": "Organization",
+        "placeholder": "Your company, school, or organization"
+      },
+      "email": {
+        "label": "Email Address *",
+        "placeholder": "your.email@example.com"
+      },
+      "message": {
+        "label": "Message *",
+        "placeholder": "Tell us about your goals and how we can help..."
+      }
+    },
+    "submit": {
+      "sending": "Sending Message...",
+      "send": "Send Message"
+    },
+    "footer": "Your message will be sent to our team and we'll respond within 24 hours.",
+    "success": "Message sent successfully! We'll get back to you within 24 hours.",
+    "error": "An unexpected error occurred"
+  },
   "common": {
     "welcome": "Welcome to Stickball",
     "learnMore": "Learn More"

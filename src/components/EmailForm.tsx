@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
 import { toast } from "sonner";
+import { useTranslations } from "next-intl";
 
 interface FormData {
   name: string;
@@ -22,6 +23,8 @@ interface FormState {
 }
 
 export default function EmailForm() {
+  const t = useTranslations('emailForm');
+  
   const [formData, setFormData] = useState<FormData>({
     name: "",
     organization: "",
@@ -69,7 +72,7 @@ export default function EmailForm() {
       setFormState(prev => ({ ...prev, isSubmitting: false }));
       
       // Show success toast
-      toast.success("Message sent successfully! We'll get back to you within 24 hours.");
+      toast.success(t('success'));
       
       // Reset form data
       setFormData({
@@ -82,7 +85,7 @@ export default function EmailForm() {
     } catch (error) {
       setFormState(prev => ({ 
         ...prev, 
-        error: error instanceof Error ? error.message : 'An unexpected error occurred',
+        error: error instanceof Error ? error.message : t('error'),
         isSubmitting: false 
       }));
     }
@@ -110,10 +113,10 @@ export default function EmailForm() {
               <Mail className="h-8 w-8" />
             </motion.div>
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-              Get in Touch
+              {t('title')}
             </h3>
             <p className="text-gray-600 dark:text-gray-300">
-              Send us a message and we&apos;ll respond within 24 hours
+              {t('subtitle')}
             </p>
           </div>
 
@@ -138,7 +141,7 @@ export default function EmailForm() {
             <div className="space-y-2">
               <Label htmlFor="name" className="text-gray-700 dark:text-gray-300 font-medium flex items-center gap-2">
                 <User className="h-4 w-4" />
-                Full Name *
+                {t('fields.name.label')}
               </Label>
               <Input
                 id="name"
@@ -147,7 +150,7 @@ export default function EmailForm() {
                 required
                 value={formData.name}
                 onChange={handleInputChange}
-                placeholder="Enter your full name"
+                placeholder={t('fields.name.placeholder')}
                 className="h-14 text-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200"
               />
             </div>
@@ -156,7 +159,7 @@ export default function EmailForm() {
             <div className="space-y-2">
               <Label htmlFor="organization" className="text-gray-700 dark:text-gray-300 font-medium flex items-center gap-2">
                 <Building className="h-4 w-4" />
-                Organization
+                {t('fields.organization.label')}
               </Label>
               <Input
                 id="organization"
@@ -164,7 +167,7 @@ export default function EmailForm() {
                 type="text"
                 value={formData.organization}
                 onChange={handleInputChange}
-                placeholder="Your company, school, or organization"
+                placeholder={t('fields.organization.placeholder')}
                 className="h-14 text-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200"
               />
             </div>
@@ -173,7 +176,7 @@ export default function EmailForm() {
             <div className="space-y-2">
               <Label htmlFor="email" className="text-gray-700 dark:text-gray-300 font-medium flex items-center gap-2">
                 <Mail className="h-4 w-4" />
-                Email Address *
+                {t('fields.email.label')}
               </Label>
               <Input
                 id="email"
@@ -182,7 +185,7 @@ export default function EmailForm() {
                 required
                 value={formData.email}
                 onChange={handleInputChange}
-                placeholder="your.email@example.com"
+                placeholder={t('fields.email.placeholder')}
                 className="h-14 text-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200"
               />
             </div>
@@ -193,7 +196,7 @@ export default function EmailForm() {
             <div className="space-y-2">
               <Label htmlFor="message" className="text-gray-700 dark:text-gray-300 font-medium flex items-center gap-2">
                 <MessageSquare className="h-4 w-4" />
-                Message *
+                {t('fields.message.label')}
               </Label>
               <textarea
                 id="message"
@@ -201,7 +204,7 @@ export default function EmailForm() {
                 required
                 value={formData.message}
                 onChange={handleInputChange}
-                placeholder="Tell us about your goals and how we can help..."
+                placeholder={t('fields.message.placeholder')}
                 rows={5}
                 className="w-full px-4 py-3 text-lg border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200 resize-none"
               />
@@ -220,12 +223,12 @@ export default function EmailForm() {
                 {formState.isSubmitting ? (
                   <div className="flex items-center gap-3">
                     <Loader2 className="h-5 w-5 animate-spin" />
-                    Sending Message...
+                    {t('submit.sending')}
                   </div>
                 ) : (
                   <div className="flex items-center gap-3">
                     <Send className="h-5 w-5" />
-                    Send Message
+                    {t('submit.send')}
                   </div>
                 )}
               </Button>
@@ -235,7 +238,7 @@ export default function EmailForm() {
           {/* Footer Note */}
           <div className="mt-8 text-center">
             <p className="text-sm text-gray-500 dark:text-gray-400">
-              Your message will be sent to our team and we&apos;ll respond within 24 hours.
+              {t('footer')}
             </p>
           </div>
         </CardContent>

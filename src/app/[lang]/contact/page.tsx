@@ -6,31 +6,33 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useTheme } from "@/contexts/ThemeContext";
 import EmailForm from "@/components/EmailForm";
+import { useTranslations } from "next-intl";
 
 export default function ContactPage() {
   const { theme } = useTheme();
+  const t = useTranslations();
 
   const contactInfo = [
     {
       icon: Phone,
-      title: "Call Us",
-      details: ["+1 (555) 123-4567", "Mon-Fri: 9AM-6PM EST"],
+      titleKey: "contact.contactInfo.callUs.title",
+      detailsKey: "contact.contactInfo.callUs.details",
       color: "green",
-      description: "Speak directly with our team"
+      descriptionKey: "contact.contactInfo.callUs.description"
     },
     {
       icon: MapPin,
-      title: "Visit Us",
-      details: ["123 Learning Street", "Education District, ED 12345"],
+      titleKey: "contact.contactInfo.visitUs.title",
+      detailsKey: "contact.contactInfo.visitUs.details",
       color: "purple",
-      description: "Schedule an in-person meeting"
+      descriptionKey: "contact.contactInfo.visitUs.description"
     },
     {
       icon: Clock,
-      title: "Response Time",
-      details: ["Within 24 hours", "Emergency: Same day"],
+      titleKey: "contact.contactInfo.responseTime.title",
+      detailsKey: "contact.contactInfo.responseTime.details",
       color: "orange",
-      description: "We're here when you need us"
+      descriptionKey: "contact.contactInfo.responseTime.description"
     }
   ];
 
@@ -59,11 +61,10 @@ export default function ContactPage() {
           className="text-center mb-16"
         >
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Get in <span className="text-primary">Touch</span>
+            {t("contact.title")} <span className="text-primary">{t("contact.titleHighlight")}</span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-            Ready to bring Stickball to your community? We&apos;d love to hear from you. 
-            Fill out the form below and we&apos;ll get back to you within 24 hours.
+            {t("contact.subtitle")}
           </p>
         </motion.div>
 
@@ -87,7 +88,7 @@ export default function ContactPage() {
           >
             {contactInfo.map((info, index) => (
               <motion.div
-                key={info.title}
+                key={info.titleKey}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ 
@@ -104,12 +105,12 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <h3 className="font-semibold text-card-foreground mb-2">
-                          {info.title}
+                          {t(info.titleKey)}
                         </h3>
                         <p className="text-muted-foreground text-sm mb-2">
-                          {info.description}
+                          {t(info.descriptionKey)}
                         </p>
-                        {info.details.map((detail, detailIndex) => (
+                        {t.raw(info.detailsKey).map((detail: string, detailIndex: number) => (
                           <p key={detailIndex} className="text-foreground text-sm mb-1">
                             {detail}
                           </p>
@@ -135,19 +136,19 @@ export default function ContactPage() {
               <h3 className={`font-semibold mb-3 ${
                 theme === "dark" ? "text-emerald-100" : "text-emerald-900"
               }`}>
-                Ready to Get Started?
+                {t("contact.cta.title")}
               </h3>
               <p className={`text-sm mb-4 ${
                 theme === "dark" ? "text-emerald-200" : "text-emerald-700"
               }`}>
-                Book a demo to see Stickball in action and learn how we can transform learning in your community.
+                {t("contact.cta.description")}
               </p>
               <Button className={`w-full ${
                 theme === "dark"
                   ? "bg-emerald-600 hover:bg-emerald-700 text-white"
                   : "bg-emerald-600 hover:bg-emerald-700 text-white"
               }`}>
-                Book a Demo
+                {t("contact.cta.button")}
               </Button>
             </motion.div>
           </motion.div>

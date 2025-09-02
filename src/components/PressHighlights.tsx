@@ -9,70 +9,70 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { useTranslations, useLocale } from "next-intl";
+import { useRouter } from "next/navigation";
 
 const pressItems = [
   {
     id: 1,
-    title: "Everett High School Partners with Stickball for Financial Literacy",
+    titleKey: "pressHighlights.items.everett.title",
     source: "8 News Now",
     url: "https://8newsnow.com/business/press-releases/ein-presswire/706626087/everett-high-school-partners-with-stickball-for-financial-literacy",
     type: "article",
     image: "/article-thumbnail.jpeg",
-    excerpt: "Partnership brings innovative financial education to local students",
-    action: "Read Full Article"
+    excerptKey: "pressHighlights.items.everett.excerpt",
+    actionKey: "pressHighlights.items.everett.action"
   },
   {
     id: 2,
-    title: "Stickball Financial Literacy Platform Demo",
+    titleKey: "pressHighlights.items.demo.title",
     source: "YouTube",
     url: "https://youtu.be/FTRQ2rj1Jb0",
     type: "video",
     image: "/finencial-literacy.png",
-    excerpt: "See our platform in action with real-world examples",
-    action: "Watch Video"
+    excerptKey: "pressHighlights.items.demo.excerpt",
+    actionKey: "pressHighlights.items.demo.action"
   },
   {
     id: 3,
-    title: "Bellwether Community Credit Union & Stickball Partnership",
+    titleKey: "pressHighlights.items.bellwether.title",
     source: "BCCU Blog",
     url: "https://www.bccu.org/blog/bellwether-stickball",
     type: "article",
     image: "/bellwether-community.png",
-    excerpt: "Strengthening communities through financial education",
-    action: "Read Full Blog"
+    excerptKey: "pressHighlights.items.bellwether.excerpt",
+    actionKey: "pressHighlights.items.bellwether.action"
   },
   {
     id: 4,
-    title: "Sahal Laher: Top AI Influencer Transforming the Future",
+    titleKey: "pressHighlights.items.sahal.title",
     source: "CIO Look Media",
     url: "https://ciolookmedia.com/innovating-the-future-sahal-laher-earns-top-spot-in-ciolooks-top-05-key-influencers-transforming-ai-in-2025/",
     type: "article",
     image: "/sahal-laher.webp",
-    excerpt: "Recognized for innovation in AI-powered education technology",
-    action: "Read Full Article"
+    excerptKey: "pressHighlights.items.sahal.excerpt",
+    actionKey: "pressHighlights.items.sahal.action"
   },
   {
     id: 5,
-    title: "Brookline Bank & Stickball: Innovative Financial Literacy Platforms",
+    titleKey: "pressHighlights.items.brookline.title",
     source: "Brookline Bank",
     url: "https://www.brooklinebank.com/2025/02/06/brookline-bank-and-stickball-providing-innovative-financial-literacy-platforms-for-customers-and-underserved-communities/",
     type: "article",
     image: "/brookline-bank.jpg",
-    excerpt: "Serving customers and underserved communities with cutting-edge solutions",
-    action: "Read Full Article"
+    excerptKey: "pressHighlights.items.brookline.excerpt",
+    actionKey: "pressHighlights.items.brookline.action"
   }
 ];
 
 export default function PressHighlights() {
+  const locale = useLocale();
+  const router = useRouter();
+  const t = useTranslations();
   
   const handleDownloadPressKit = () => {
     // Placeholder for press kit download
     alert("Press Kit download functionality to be implemented");
-  };
-
-  const handleMediaInquiries = () => {
-    // Navigate to contact page for media inquiries
-    window.location.href = '/contact';
   };
 
   return (
@@ -100,16 +100,15 @@ export default function PressHighlights() {
             className="inline-block mb-6"
           >
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent text-lg font-semibold tracking-wider uppercase">
-              Media Coverage
+              {t("pressHighlights.mediaCoverage")}
             </span>
           </motion.div>
 
           <h2 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-8 leading-tight">
-            Stickball <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">In the Press</span>
+            {t("pressHighlights.title")} <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">{t("pressHighlights.titleHighlight")}</span>
           </h2>
           <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
-            Discover how media outlets and partners are covering our mission to transform 
-            financial literacy and workforce development across communities.
+            {t("pressHighlights.subtitle")}
           </p>
         </motion.div>
 
@@ -155,14 +154,14 @@ export default function PressHighlights() {
                           <h3 
                             className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight drop-shadow-lg"
                           >
-                            {item.title}
+                            {t(item.titleKey)}
                           </h3>
                           
                           {/* Excerpt */}
                           <p 
                             className="text-lg md:text-xl text-gray-200 mb-8 max-w-3xl leading-relaxed drop-shadow-md"
                           >
-                            {item.excerpt}
+                            {t(item.excerptKey)}
                           </p>
                           
                           {/* CTA Button */}
@@ -173,7 +172,7 @@ export default function PressHighlights() {
                               rel="noopener noreferrer"
                               className="inline-flex items-center gap-3 bg-white/95 backdrop-blur-sm hover:bg-white text-gray-900 px-8 py-4 rounded-full text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300"
                             >
-                              <span>{item.action}</span>
+                              <span>{t(item.actionKey)}</span>
                               <ExternalLink className="h-5 w-5" />
                             </a>
                           </div>
@@ -205,10 +204,10 @@ export default function PressHighlights() {
         >
           <div className="bg-gradient-to-r from-white to-blue-50/50 dark:from-gray-800 dark:to-gray-700 p-12 rounded-3xl shadow-2xl border border-white/50 dark:border-gray-700 backdrop-blur-sm max-w-5xl mx-auto hover:scale-[1.02] transition-all duration-300">
             <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-              Get Press Resources & Media Information
+              {t("pressHighlights.ctaTitle")}
             </h3>
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
-              Download our press kit for media coverage or get in touch for interviews and inquiries.
+              {t("pressHighlights.ctaDescription")}
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
@@ -217,15 +216,15 @@ export default function PressHighlights() {
                 className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 sm:px-10 py-4 text-lg rounded-full font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 inline-flex items-center gap-3 hover:scale-105"
               >
                 <Download className="h-5 w-5" />
-                Download Press Kit
+                {t("pressHighlights.downloadPressKit")}
               </button>
               
               <button
-                onClick={handleMediaInquiries}
+                onClick={() => router.push(`/${locale}/contact`)}
                 className="bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 px-6 sm:px-10 py-4 text-xs sm:text-sm md:text-lg rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center gap-3 hover:scale-105"
               >
                 <Mail className="h-5 w-5" />
-                Contact for Media Inquiries
+                {t("pressHighlights.contactMedia")}
               </button>
             </div>
           </div>

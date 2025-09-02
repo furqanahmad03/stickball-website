@@ -5,11 +5,13 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useTheme } from "@/contexts/ThemeContext";
 import { useRouter } from "next/navigation";
+import { useTranslations, useLocale } from "next-intl";
 
 export default function HeroSection() {
   const router = useRouter();
   const { theme } = useTheme();
-
+  const t = useTranslations();
+  const locale = useLocale();
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Dark Mode Gradient Shadow */}
@@ -26,7 +28,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 w-full h-full">
         <Image
           src="/stickball-hero-section.jpg"
-          alt="Stickball Hero Section"
+          alt={t("hero.altText")}
           fill
           className="object-cover"
           priority
@@ -41,7 +43,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="space-y-8 max-w-2xl"
+          className="space-y-8 max-w-3xl"
         >
           {/* Dark Mode Glow Effect */}
           {theme === "dark" && (
@@ -55,14 +57,14 @@ export default function HeroSection() {
             className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight drop-shadow-2xl"
           >
             <span className="text-white cursor-pointer hover:scale-[1.02] transition-transform duration-300 inline-block">
-              Lessons that Stick.
+              {t("hero.headline1")}
             </span>
             <br />
             <span
               style={{ color: "rgb(97, 109, 237)" }}
               className="drop-shadow-lg cursor-pointer hover:scale-[1.02] transition-transform duration-300 inline-block"
             >
-              Impact that Lasts.
+              {t("hero.headline2")}
             </span>
           </motion.h1>
 
@@ -71,12 +73,9 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-            className="text-lg md:text-xl lg:text-2xl text-white max-w-4xl leading-relaxed drop-shadow-lg"
+            className="text-lg md:text-xl lg:text-2xl text-white max-w-4xl leading-relaxed drop-shadow-lg hover:scale-[1.02] transition-transform duration-300"
           >
-            Stickball is a community-centered, AI-enabled learning platform that
-            helps schools, employers, and communities build lasting skills
-            targeted to the needs of every learner. Fast to deploy, customizable
-            for any audience, and proven to deliver measurable impact.
+            {t("hero.subheadline")}
           </motion.p>
 
           {/* CTA Button */}
@@ -86,11 +85,11 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
           >
             <Button
-              onClick={() => router.push("/contact")}
+              onClick={() => router.push(`/${locale}/contact`)}
               size="lg"
               className="group relative overflow-hidden bg-gradient-to-r from-[rgb(97,109,237)] via-[rgb(107,119,247)] to-[rgb(97,109,237)] hover:from-[rgb(87,99,227)] hover:via-[rgb(97,109,237)] hover:to-[rgb(87,99,227)] text-white px-8 py-6 text-xl font-bold rounded-sm shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-1 border-0"
             >
-              <span className="relative z-10">Book a Demo</span>
+              <span className="relative z-10">{t("hero.ctaButton")}</span>
               {/* Shimmer effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
               {/* Glow effect */}

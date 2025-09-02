@@ -3,10 +3,12 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Users, Target, Zap, Sparkles } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useTranslations, useLocale } from "next-intl";
 
 export default function CallToAction() {
   const router = useRouter();
-
+  const t = useTranslations();
+  const locale = useLocale();
   return (
     <section className="py-24 bg-gradient-to-br from-slate-700 via-blue-900 to-purple-900 dark:from-slate-900 dark:via-blue-900 dark:to-purple-900 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 relative overflow-hidden">
       {/* Background Pattern */}
@@ -83,7 +85,7 @@ export default function CallToAction() {
           >
             <span className="bg-gradient-to-r from-yellow-300 to-yellow-300 bg-clip-text text-transparent text-lg font-semibold tracking-wider uppercase inline-flex items-center gap-2">
               <Sparkles className="h-5 w-5" />
-              Ready to Transform Learning?
+              {t("callToAction.badge")}
             </span>
           </motion.div>
 
@@ -95,8 +97,8 @@ export default function CallToAction() {
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white leading-tight"
           >
-            Bring Stickball to Your{" "}
-            <span className="bg-gradient-to-r from-yellow-600 to-orange-600 dark:from-yellow-300 dark:to-orange-300 bg-clip-text text-transparent">Community</span>
+            {t("callToAction.title")}{" "}
+            <span className="bg-gradient-to-r from-yellow-600 to-orange-600 dark:from-yellow-300 dark:to-orange-300 bg-clip-text text-transparent">{t("callToAction.titleHighlight")}</span>
           </motion.h2>
 
           {/* Copy */}
@@ -107,8 +109,7 @@ export default function CallToAction() {
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="text-xl md:text-2xl text-gray-700 dark:text-blue-100 max-w-5xl mx-auto leading-relaxed"
           >
-            We&apos;d love to show you how Stickball can serve your learners, your community, 
-            or your organization. Let&apos;s talk about your goals and how we can help.
+            {t("callToAction.description")}
           </motion.p>
 
           {/* CTA Button */}
@@ -120,10 +121,10 @@ export default function CallToAction() {
             className="pt-6"
           >
             <button
-              onClick={() => router.push("/contact")}
+              onClick={() => router.push(`/${locale}/contact`)}
               className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-400 hover:to-orange-400 dark:from-yellow-400 dark:to-orange-400 dark:hover:from-yellow-300 dark:hover:to-orange-300 text-gray-900 px-16 py-6 text-2xl font-bold rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 inline-flex items-center gap-4 group hover:scale-105"
             >
-              Request a Demo
+              {t("callToAction.ctaButton")}
               <motion.div
                 animate={{ x: [0, 8, 0] }}
                 transition={{ 
@@ -149,22 +150,22 @@ export default function CallToAction() {
           {[
             {
               icon: Users,
-              title: "Community Impact",
-              description: "Transform learning outcomes across your entire community"
+              titleKey: "callToAction.benefits.communityImpact.title",
+              descriptionKey: "callToAction.benefits.communityImpact.description"
             },
             {
               icon: Target,
-              title: "Measurable Results",
-              description: "Track progress with data-driven insights and analytics"
+              titleKey: "callToAction.benefits.measurableResults.title",
+              descriptionKey: "callToAction.benefits.measurableResults.description"
             },
             {
               icon: Zap,
-              title: "Fast Implementation",
-              description: "Get up and running in days, not months"
+              titleKey: "callToAction.benefits.fastImplementation.title",
+              descriptionKey: "callToAction.benefits.fastImplementation.description"
             }
           ].map((benefit) => (
             <motion.div
-              key={benefit.title}
+              key={benefit.titleKey}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
@@ -175,10 +176,10 @@ export default function CallToAction() {
                 <benefit.icon className="h-10 w-10 text-yellow-600 dark:text-yellow-300" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                {benefit.title}
+                {t(benefit.titleKey)}
               </h3>
               <p className="text-gray-700 dark:text-blue-200 text-lg leading-relaxed">
-                {benefit.description}
+                {t(benefit.descriptionKey)}
               </p>
             </motion.div>
           ))}
@@ -194,8 +195,8 @@ export default function CallToAction() {
         >
           <div className="bg-blue-50/50 dark:bg-white/5 backdrop-blur-sm rounded-3xl p-8 max-w-4xl mx-auto">
             <p className="text-gray-700 dark:text-blue-200 text-lg font-medium">
-              Trusted by educators, community leaders, and organizations across{" "}
-              <span className="text-yellow-600 dark:text-yellow-300 font-bold">10+ states</span>
+              {t("callToAction.trustIndicator")}{" "}
+              <span className="text-yellow-600 dark:text-yellow-300 font-bold">{t("callToAction.statesCount")}</span>
             </p>
           </div>
         </motion.div>

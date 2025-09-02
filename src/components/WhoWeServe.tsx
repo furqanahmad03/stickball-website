@@ -3,44 +3,45 @@
 import { motion } from "framer-motion";
 import { GraduationCap, Building2, Users, PiggyBank, Heart, ChevronRight } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useTranslations, useLocale } from "next-intl";
 
 const audienceTiles = [
   {
     icon: GraduationCap,
-    title: "Schools & Educators",
-    description: "Turnkey classroom solutions and supplemental programs",
+    titleKey: "whoWeServe.audiences.schools.title",
+    descriptionKey: "whoWeServe.audiences.schools.description",
     color: "blue",
     bgGradient: "from-blue-50 to-blue-100/50",
     iconBg: "from-blue-500 to-blue-600"
   },
   {
     icon: Building2,
-    title: "Communities and Cities",
-    description: "Equip communities with life and career skills that improve access to knowledge, strengthen competitiveness, and build local capacity.",
+    titleKey: "whoWeServe.audiences.communities.title",
+    descriptionKey: "whoWeServe.audiences.communities.description",
     color: "green",
     bgGradient: "from-green-50 to-green-100/50",
     iconBg: "from-green-500 to-green-600"
   },
   {
     icon: Users,
-    title: "Employers & Workforce Programs",
-    description: "Upskill employees and jobseekers with highly targeted job-ready training",
+    titleKey: "whoWeServe.audiences.employers.title",
+    descriptionKey: "whoWeServe.audiences.employers.description",
     color: "purple",
     bgGradient: "from-purple-50 to-purple-100/50",
     iconBg: "from-purple-500 to-purple-600"
   },
   {
     icon: PiggyBank,
-    title: "Banks and Credit Unions",
-    description: "Out-of-the-box Community Reinvestment Act (CRA) compliance, with measurable local impact in LMI communities",
+    titleKey: "whoWeServe.audiences.banks.title",
+    descriptionKey: "whoWeServe.audiences.banks.description",
     color: "orange",
     bgGradient: "from-orange-50 to-orange-100/50",
     iconBg: "from-orange-500 to-orange-600"
   },
   {
     icon: Heart,
-    title: "Community Sponsors",
-    description: "Reach individuals directly where they live and work, with programs that reflect their unique languages, cultures, and needs",
+    titleKey: "whoWeServe.audiences.sponsors.title",
+    descriptionKey: "whoWeServe.audiences.sponsors.description",
     color: "indigo",
     bgGradient: "from-indigo-50 to-indigo-100/50",
     iconBg: "from-indigo-500 to-indigo-600"
@@ -49,6 +50,8 @@ const audienceTiles = [
 
 export default function WhoWeServe() {
   const router = useRouter();
+  const t = useTranslations();
+  const locale = useLocale();
 
   return (
     <section className="py-24 bg-gradient-to-br from-slate-50 via-white to-blue-50/30 dark:from-background dark:via-[#1c1c1c] dark:to-[#2c2c2c] relative overflow-hidden">
@@ -75,16 +78,15 @@ export default function WhoWeServe() {
             className="inline-block mb-6"
           >
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent text-lg font-semibold tracking-wider uppercase">
-              Our Audience
+              {t("whoWeServe.audience")}
             </span>
           </motion.div>
 
           <h2 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-8 leading-tight">
-            Built to Serve <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">All Learners</span>
+            {t("whoWeServe.title")} <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">{t("whoWeServe.titleHighlight")}</span>
           </h2>
           <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
-            From classrooms to boardrooms, from city halls to community centers - 
-            Stickball adapts to serve every learning environment and audience.
+            {t("whoWeServe.subtitle")}
           </p>
         </motion.div>
 
@@ -92,7 +94,7 @@ export default function WhoWeServe() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
           {audienceTiles.map((tile, index) => (
             <motion.div
-              key={tile.title}
+              key={tile.titleKey}
               initial={{ opacity: 0, y: 30, scale: 0.9 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, margin: "-50px" }}
@@ -117,12 +119,12 @@ export default function WhoWeServe() {
 
                   {/* Title */}
                   <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-gray-800 dark:group-hover:text-gray-100 transition-colors duration-300">
-                    {tile.title}
+                    {t(tile.titleKey)}
                   </h3>
 
                   {/* Description */}
                   <p className="text-gray-600 dark:text-gray-300 leading-relaxed group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors duration-300 text-lg">
-                    {tile.description}
+                    {t(tile.descriptionKey)}
                   </p>
                 </div>
 
@@ -143,17 +145,17 @@ export default function WhoWeServe() {
         >
           <div className="bg-gradient-to-r from-white to-blue-50/50 dark:from-gray-800 dark:to-gray-700 p-12 rounded-3xl shadow-2xl border border-white/50 dark:border-gray-700 backdrop-blur-sm max-w-5xl mx-auto hover:scale-[1.02] transition-all duration-300">
             <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-              Want to know how Stickball can work for your community?
+              {t("whoWeServe.ctaTitle")}
             </h3>
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
-              Let&apos;s discuss your specific needs and show you how our platform can be tailored to serve your learners.
+              {t("whoWeServe.ctaDescription")}
             </p>
             <motion.button
               whileTap={{ scale: 0.95 }}
-              onClick={() => router.push("/contact")}
+              onClick={() => router.push(`/${locale}/contact`)}
               className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 sm:px-10 py-4 text-xs sm:text-sm md:text-lg rounded-full font-semibold shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-200 inline-flex items-center gap-3"
             >
-              Click here to book a demo
+              {t("whoWeServe.ctaButton")}
               <ChevronRight className="h-5 w-5" />
             </motion.button>
           </div>

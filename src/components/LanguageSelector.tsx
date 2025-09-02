@@ -2,7 +2,7 @@
 
 import { Globe, ChevronDown } from "lucide-react";
 import { useRouter, usePathname } from "next/navigation";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import {
@@ -23,6 +23,7 @@ export default function LanguageSelector() {
   const pathname = usePathname();
   const locale = useLocale();
   const [isOpen, setIsOpen] = useState(false);
+  const t = useTranslations();
 
   const pathSegments = pathname.split('/').filter(Boolean);
   const currentLocale = pathSegments[0] && ['en', 'es', 'pt'].includes(pathSegments[0]) ? pathSegments[0] : 'en';
@@ -51,6 +52,7 @@ export default function LanguageSelector() {
             className="!outline-none flex items-center gap-2 px-2 py-1 sm:px-3 sm:py-2 rounded-md text-sm font-medium text-gray-900 hover:text-[rgb(97,109,237)] dark:text-gray-100 dark:hover:text-[rgb(97,109,237)] transition-colors duration-300 hover:bg-[rgba(97,109,237,0.1)] dark:hover:bg-[rgba(97,109,237,0.1)]"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            aria-label={t("languageSelector.selectLanguage")}
           >
             <span className="inline">{currentLanguage.flag}</span>
             <span className="inline text-xs">{currentLanguage.code.toUpperCase()}</span>

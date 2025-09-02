@@ -2,36 +2,38 @@
 
 import { motion } from "framer-motion";
 import { BookOpen, Zap, Globe, Accessibility, Smartphone } from "lucide-react";
+import { useTranslations, useLocale } from "next-intl";
+import { useRouter } from "next/navigation";
 
 const features = [
   {
     icon: BookOpen,
-    title: "Customizable for Every Learner",
-    description: "Tailored at the community, classroom, or individual level",
+    titleKey: "featureTiles.features.customizable.title",
+    descriptionKey: "featureTiles.features.customizable.description",
     color: "blue"
   },
   {
     icon: Zap,
-    title: "Fast to Deploy",
-    description: "Launch in a matter of days, with no IT overhead",
+    titleKey: "featureTiles.features.fastDeploy.title",
+    descriptionKey: "featureTiles.features.fastDeploy.description",
     color: "green"
   },
   {
     icon: Globe,
-    title: "Available in Any Language",
-    description: "Designed to reflect the language and culture of every learner",
+    titleKey: "featureTiles.features.anyLanguage.title",
+    descriptionKey: "featureTiles.features.anyLanguage.description",
     color: "purple"
   },
   {
     icon: Accessibility,
-    title: "Accessible by Design",
-    description: "Built for learners with diverse needs and abilities",
+    titleKey: "featureTiles.features.accessible.title",
+    descriptionKey: "featureTiles.features.accessible.description",
     color: "orange"
   },
   {
     icon: Smartphone,
-    title: "Mobile-Friendly",
-    description: "Runs on any device, no app required",
+    titleKey: "featureTiles.features.mobileFriendly.title",
+    descriptionKey: "featureTiles.features.mobileFriendly.description",
     color: "indigo"
   }
 ];
@@ -45,6 +47,9 @@ const colorVariants = {
 };
 
 export default function FeatureTiles() {
+  const t = useTranslations();
+  const locale = useLocale();
+  const router = useRouter();
   return (
     <section className="py-20 bg-gradient-to-br from-blue-50 via-indigo-50/40 to-purple-100/60 dark:from-[#2c2c2c] dark:via-[#1c1c1c] dark:to-background">
       <div className="max-w-7xl mx-auto px-4">
@@ -57,11 +62,10 @@ export default function FeatureTiles() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Why Choose Stickball?
+            {t("featureTiles.title")}
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Our platform is designed with flexibility and accessibility in mind, 
-            ensuring every learner gets the support they need to succeed.
+            {t("featureTiles.subtitle")}
           </p>
         </motion.div>
 
@@ -69,7 +73,7 @@ export default function FeatureTiles() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <motion.div
-              key={feature.title}
+              key={feature.titleKey}
               initial={{ opacity: 0, y: 30, scale: 0.9 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, margin: "-50px" }}
@@ -92,10 +96,10 @@ export default function FeatureTiles() {
                 {/* Content */}
                 <div className="space-y-4">
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200">
-                    {feature.title}
+                    {t(feature.titleKey)}
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                    {feature.description}
+                    {t(feature.descriptionKey)}
                   </p>
                 </div>
 
@@ -122,20 +126,15 @@ export default function FeatureTiles() {
           className="text-center mt-16"
         >
           <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
-            Ready to see these features in action?
+            {t("featureTiles.ctaText")}
           </p>
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
-            onClick={() => {
-              const contactSection = document.getElementById('contact-form');
-              if (contactSection) {
-                contactSection.scrollIntoView({ behavior: 'smooth' });
-              }
-            }}
+            onClick={() => router.push(`/${locale}/contact`)}
           >
-            Get Started Today
+            {t("featureTiles.ctaButton")}
           </motion.button>
         </motion.div>
       </div>

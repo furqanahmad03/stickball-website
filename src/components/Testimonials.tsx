@@ -3,22 +3,23 @@
 import { motion } from "framer-motion";
 import { Quote, GraduationCap, Building2, ArrowRight } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useTranslations, useLocale } from "next-intl";
 
 const testimonials = [
   {
     id: 1,
-    quote: "The engaging content and real-life scenarios help students understand finance and build confidence.",
+    quoteKey: "testimonials.items.alfred.quote",
     author: "Alfred Daviso, Ph.D",
-    title: "Akron University",
+    titleKey: "testimonials.items.alfred.title",
     rating: 5,
     icon: GraduationCap,
     color: "blue"
   },
   {
     id: 2,
-    quote: "Our students thrive when we connect learning with real-world experiences... Thanks to Bellwether Community Credit Union and Stickball, we&apos;re giving students a fun, hands-on way to build confidence, collaboration, and essential life skills.",
+    quoteKey: "testimonials.items.jenn.quote",
     author: "Dr. Jenn Chmiel",
-    title: "Superintendent of Manchester School District",
+    titleKey: "testimonials.items.jenn.title",
     rating: 5,
     icon: Building2,
     color: "green"
@@ -44,6 +45,9 @@ const colorVariants = {
 
 export default function Testimonials() {
   const router = useRouter();
+  const locale = useLocale();
+  const t = useTranslations();
+  
   return (
     <section className="py-24 bg-gradient-to-br from-slate-50 via-white to-purple-50/30 dark:from-background dark:via-[#1c1c1c] dark:to-[#2c2c2c] relative overflow-hidden">
       {/* Background decorative elements */}
@@ -69,16 +73,15 @@ export default function Testimonials() {
             className="inline-block mb-6"
           >
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent text-lg font-semibold tracking-wider uppercase">
-              Success Stories
+              {t("testimonials.successStories")}
             </span>
           </motion.div>
 
           <h2 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-8 leading-tight">
-            What Our <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Partners Are Saying</span>
+            {t("testimonials.title")} <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">{t("testimonials.titleHighlight")}</span>
           </h2>
           <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
-            Hear directly from educators and community leaders about the impact 
-            Stickball is making in their institutions and communities.
+            {t("testimonials.subtitle")}
           </p>
         </motion.div>
 
@@ -107,7 +110,7 @@ export default function Testimonials() {
 
                   {/* Quote Text */}
                   <blockquote className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 leading-relaxed mb-8 italic font-medium">
-                    &quot;{testimonial.quote}&quot;
+                    &quot;{t(testimonial.quoteKey)}&quot;
                   </blockquote>
 
                   {/* Author Info */}
@@ -123,7 +126,7 @@ export default function Testimonials() {
                         {testimonial.author}
                       </h4>
                       <p className={`text-lg ${colorVariants[testimonial.color as keyof typeof colorVariants].accent} font-semibold break-words`}>
-                        {testimonial.title}
+                        {t(testimonial.titleKey)}
                       </p>
                     </div>
                   </div>
@@ -146,16 +149,16 @@ export default function Testimonials() {
         >
           <div className="bg-gradient-to-r from-white to-blue-50/50 dark:from-gray-800 dark:to-gray-700 p-12 rounded-3xl shadow-2xl border border-white/50 dark:border-gray-700 backdrop-blur-sm max-w-5xl mx-auto hover:scale-[1.02] transition-all duration-300">
             <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-              Join Our Growing Network of Partners
+              {t("testimonials.ctaTitle")}
             </h3>
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
-              See how Stickball can transform learning in your institution or community.
+              {t("testimonials.ctaDescription")}
             </p>
             <button
               className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 sm:px-10 py-4 text-lg rounded-full font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 inline-flex items-center gap-3"
-              onClick={() => router.push("/contact")}
+              onClick={() => router.push(`/${locale}/contact`)}
             >
-              Start Your Partnership Today
+              {t("testimonials.ctaButton")}
               <ArrowRight className="h-5 w-5" />
             </button>
           </div>
