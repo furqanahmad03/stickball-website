@@ -1,10 +1,10 @@
 "use client";
 
-import { Globe, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { useRouter, usePathname } from "next/navigation";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -21,7 +21,6 @@ const languages = [
 export default function LanguageSelector() {
   const router = useRouter();
   const pathname = usePathname();
-  const locale = useLocale();
   const [isOpen, setIsOpen] = useState(false);
   const t = useTranslations();
 

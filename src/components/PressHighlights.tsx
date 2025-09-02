@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/carousel";
 import { useTranslations, useLocale } from "next-intl";
 import { useRouter } from "next/navigation";
+import { PDFGenerator, extractContentFromTranslations } from "@/lib/pdfGenerator";
 
 const pressItems = [
   {
@@ -71,8 +72,17 @@ export default function PressHighlights() {
   const t = useTranslations();
   
   const handleDownloadPressKit = () => {
-    // Placeholder for press kit download
-    alert("Press Kit download functionality to be implemented");
+    try {
+      // Extract content from translations
+      const content = extractContentFromTranslations(t);
+      
+      // Generate PDF
+      const pdfGenerator = new PDFGenerator();
+      pdfGenerator.generatePDF(content, locale);
+    } catch (error) {
+      console.error('Error generating PDF:', error);
+      alert("There was an error generating the press kit. Please try again.");
+    }
   };
 
   return (

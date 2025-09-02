@@ -14,7 +14,6 @@ import {
   Lightbulb,
   Handshake,
   Star,
-  ArrowRight,
   Sparkles
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
