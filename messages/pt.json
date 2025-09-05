@@ -1,0 +1,346 @@
+{
+  "navigation": {
+    "home": "Início",
+    "about": "Sobre",
+    "contact": "Contato"
+  },
+  "navbar": {
+    "toggleMenu": "Alternar menu",
+    "toggleDarkMode": "Alternar modo escuro",
+    "closeMenu": "Fechar menu",
+    "lightMode": "Modo Claro",
+    "darkMode": "Modo Escuro"
+  },
+  "languageSelector": {
+    "selectLanguage": "Selecionar idioma",
+    "currentLanguage": "Idioma atual"
+  },
+  "hero": {
+    "headline1": "Lições que Permanecem.",
+    "headline2": "Impacto que Perdura.",
+    "subheadline": "Stickball é uma plataforma de aprendizado centrada na comunidade e habilitada por IA que ajuda escolas, empregadores e comunidades a desenvolver habilidades duradouras direcionadas às necessidades de cada aprendiz. Rápida de implementar, personalizável para qualquer audiência e comprovada para entregar impacto mensurável.",
+    "ctaButton": "Agendar Demo",
+    "altText": "Seção Hero do Stickball"
+  },
+  "featureTiles": {
+    "title": "Por Que Escolher Stickball?",
+    "subtitle": "Nossa plataforma é projetada com flexibilidade e acessibilidade em mente, garantindo que cada aprendiz receba o suporte que precisa para ter sucesso.",
+    "ctaText": "Pronto para ver essas características em ação?",
+    "ctaButton": "Começar Hoje",
+    "features": {
+      "customizable": {
+        "title": "Personalizável para Cada Aprendiz",
+        "description": "Adaptado ao nível comunitário, de sala de aula ou individual"
+      },
+      "fastDeploy": {
+        "title": "Rápida de Implementar",
+        "description": "Lance em questão de dias, sem sobrecarga de TI"
+      },
+      "anyLanguage": {
+        "title": "Disponível em Qualquer Idioma",
+        "description": "Projetada para refletir o idioma e cultura de cada aprendiz"
+      },
+      "accessible": {
+        "title": "Acessível por Design",
+        "description": "Construída para aprendizes com diversas necessidades e habilidades"
+      },
+      "mobileFriendly": {
+        "title": "Compatível com Móveis",
+        "description": "Funciona em qualquer dispositivo, não requer aplicativo"
+      }
+    }
+  },
+  "methodology": {
+    "approach": "Nossa Abordagem",
+    "title": "Nossa Metodologia:",
+    "learn": "Aprender.",
+    "practice": "Praticar.",
+    "apply": "Aplicar.",
+    "description": "No Stickball, projetamos experiências de aprendizado que realmente permanecem. Nossa abordagem respaldada por pesquisa é baseada na amplamente reconhecida Pirâmide de Aprendizagem, que demonstra que diferentes métodos de aprendizado levam a níveis muito diferentes de retenção.",
+    "passiveMethods": "Métodos passivos sozinhos resultam em retenção tão baixa quanto",
+    "activeMethods": "Métodos ativos podem aumentar a retenção até",
+    "conclusion": "É por isso que a metodologia do Stickball é construída para mover os aprendizes para baixo na pirâmide. Desde entender conceitos até aplicá-los na vida real.",
+    "ctaTitle": "Pronto para Experimentar a Pirâmide de Aprendizagem em Ação?",
+    "ctaDescription": "Veja como nossa metodologia transforma o aprendizado passivo em experiências ativas e envolventes que permanecem.",
+    "ctaButton": "Solicitar Demo",
+    "steps": {
+      "learn": {
+        "phase": "APRENDER",
+        "retention": "~10–30% Retenção",
+        "description": "Introduz conceitos-chave através de conteúdo altamente envolvente. Esta camada fundamental suporta compreensão em uma ampla gama de estilos de aprendizado.",
+        "features": [
+          "Vídeos de formato curto",
+          "Lições de áudio, podcasts e cenários",
+          "Texto fácil de digerir, direcionado por nível de leitura",
+          "Acessibilidade integrada com tradução para qualquer idioma"
+        ]
+      },
+      "practice": {
+        "phase": "PRATICAR",
+        "retention": "~30–75% Retenção",
+        "description": "Desenvolve habilidades e confiança através de atividades interativas e adaptativas que requerem tomada de decisão ativa.",
+        "features": [
+          "Minijogos e desafios digitais",
+          "Questionários baseados em cenários",
+          "Tarefas de prática personalizadas",
+          "Exercícios relevantes para a comunidade"
+        ]
+      },
+      "apply": {
+        "phase": "APLICAR",
+        "retention": "~90%+ Retenção",
+        "description": "Reforça o conhecimento através de simulações realistas e de alto risco, levando a confiança e resultados reais.",
+        "features": [
+          "Interações ao vivo impulsionadas por IA e simulações de tomada de decisão",
+          "Cenários aprimorados com VR/AR",
+          "Jogos de papéis comunitários e no local de trabalho",
+          "Projetos que requerem que os aprendizes expliquem ou ajam sobre o que aprenderam"
+        ]
+      }
+    }
+  },
+  "whoWeServe": {
+    "audience": "Nossa Audiência",
+    "title": "Construído para Servir",
+    "titleHighlight": "Todos os Aprendizes",
+    "subtitle": "De salas de aula a salas de reunião, de prefeituras a centros comunitários - Stickball se adapta para servir cada ambiente de aprendizado e audiência.",
+    "ctaTitle": "Quer saber como Stickball pode funcionar para sua comunidade?",
+    "ctaDescription": "Vamos discutir suas necessidades específicas e mostrar como nossa plataforma pode ser adaptada para servir seus aprendizes.",
+    "ctaButton": "Clique aqui para agendar uma demo",
+    "audiences": {
+      "schools": {
+        "title": "Escolas e Educadores",
+        "description": "Soluções de sala de aula prontas para uso e programas complementares"
+      },
+      "communities": {
+        "title": "Comunidades e Cidades",
+        "description": "Equipa comunidades com habilidades de vida e carreira que melhoram o acesso ao conhecimento, fortalecem a competitividade e constroem capacidade local."
+      },
+      "employers": {
+        "title": "Empregadores e Programas de Força de Trabalho",
+        "description": "Melhora as habilidades de funcionários e candidatos a emprego com treinamento altamente direcionado e pronto para o trabalho"
+      },
+      "banks": {
+        "title": "Bancos e Cooperativas de Crédito",
+        "description": "Conformidade com a Lei de Reinvestimento Comunitário (CRA) pronta para uso, com impacto local mensurável em comunidades LMI"
+      },
+      "sponsors": {
+        "title": "Patrocinadores Comunitários",
+        "description": "Atinge indivíduos diretamente onde vivem e trabalham, com programas que refletem seus idiomas, culturas e necessidades únicas"
+      }
+    }
+  },
+  "pressHighlights": {
+    "mediaCoverage": "Cobertura da Mídia",
+    "title": "Stickball",
+    "titleHighlight": "Na Imprensa",
+    "subtitle": "Descubra como os meios de comunicação e parceiros estão cobrindo nossa missão de transformar a educação financeira e o desenvolvimento da força de trabalho nas comunidades.",
+    "ctaTitle": "Obtenha Recursos de Imprensa e Informações da Mídia",
+    "ctaDescription": "Baixe nosso kit de imprensa para cobertura da mídia ou entre em contato para entrevistas e investigações.",
+    "downloadPressKit": "Baixar Kit de Imprensa",
+    "contactMedia": "Contatar para Consultas da Mídia",
+    "items": {
+      "everett": {
+        "title": "Everett High School se Associa com Stickball para Educação Financeira",
+        "source": "8 News Now",
+        "excerpt": "A parceria traz educação financeira inovadora para estudantes locais",
+        "action": "Ler Artigo Completo"
+      },
+      "demo": {
+        "title": "Demo da Plataforma de Educação Financeira Stickball",
+        "source": "YouTube",
+        "excerpt": "Veja nossa plataforma em ação com exemplos do mundo real",
+        "action": "Assistir Vídeo"
+      },
+      "bellwether": {
+        "title": "Parceria Bellwether Community Credit Union e Stickball",
+        "source": "Blog BCCU",
+        "excerpt": "Fortalecendo comunidades através de educação financeira",
+        "action": "Ler Blog Completo"
+      },
+      "sahal": {
+        "title": "Sahal Laher: Influenciador de IA Líder Transformando o Futuro",
+        "source": "CIO Look Media",
+        "excerpt": "Reconhecido por inovação em tecnologia educacional impulsionada por IA",
+        "action": "Ler Artigo Completo"
+      },
+      "brookline": {
+        "title": "Brookline Bank e Stickball: Plataformas Inovadoras de Educação Financeira",
+        "source": "Brookline Bank",
+        "excerpt": "Servindo clientes e comunidades desatendidas com soluções de ponta",
+        "action": "Ler Artigo Completo"
+      }
+    }
+  },
+  "testimonials": {
+    "successStories": "Histórias de Sucesso",
+    "title": "O Que Nossos",
+    "titleHighlight": "Parceiros Estão Dizendo",
+    "subtitle": "Ouça diretamente de educadores e líderes comunitários sobre o impacto que Stickball está tendo em suas instituições e comunidades.",
+    "ctaTitle": "Junte-se à Nossa Rede Crescente de Parceiros",
+    "ctaDescription": "Veja como Stickball pode transformar o aprendizado em sua instituição ou comunidade.",
+    "ctaButton": "Comece Sua Parceria Hoje",
+    "items": {
+      "alfred": {
+        "quote": "O conteúdo envolvente e os cenários da vida real ajudam os estudantes a entender finanças e construir confiança.",
+        "author": "Alfred Daviso, Ph.D",
+        "title": "Universidade de Akron"
+      },
+      "jenn": {
+        "quote": "Nossos estudantes prosperam quando conectamos o aprendizado com experiências do mundo real... Graças à Bellwether Community Credit Union e Stickball, estamos dando aos estudantes uma forma divertida e prática de construir confiança, colaboração e habilidades essenciais para a vida.",
+        "author": "Dra. Jenn Chmiel",
+        "title": "Superintendente do Distrito Escolar de Manchester"
+      }
+    }
+  },
+  "callToAction": {
+    "badge": "Pronto para Transformar o Aprendizado?",
+    "title": "Leve Stickball para Sua",
+    "titleHighlight": "Comunidade",
+    "description": "Adoraríamos mostrar como Stickball pode servir seus aprendizes, sua comunidade ou sua organização. Vamos conversar sobre seus objetivos e como podemos ajudar.",
+    "ctaButton": "Solicitar Demo",
+    "benefits": {
+      "communityImpact": {
+        "title": "Impacto Comunitário",
+        "description": "Transforme os resultados de aprendizado em toda sua comunidade"
+      },
+      "measurableResults": {
+        "title": "Resultados Mensuráveis",
+        "description": "Acompanhe o progresso com insights e análises baseados em dados"
+      },
+      "fastImplementation": {
+        "title": "Implementação Rápida",
+        "description": "Entre em funcionamento em dias, não meses"
+      }
+    },
+    "trustIndicator": "Confiado por educadores, líderes comunitários e organizações em",
+    "statesCount": "10+ estados"
+  },
+  "about": {
+    "ourStory": "Nossa História",
+    "title": "Sobre",
+    "titleHighlight": "Stickball",
+    "subtitle": "Empoderando comunidades através de tecnologia educacional inovadora que realmente permanece.",
+    "mission": "Nossa Missão",
+    "missionDescription": "Stickball é uma plataforma líder de tecnologia educacional dedicada a promover educação financeira e preparação para o trabalho, com uma crescente presença em 10 estados. Com lições interativas e orientação personalizada, Stickball capacita estudantes e profissionais a tomar decisões financeiras informadas através de soluções centradas na comunidade.",
+    "whatMakesUsDifferent": "O Que Nos Torna Diferentes",
+    "coreStrengths": "Forças",
+    "coreStrengthsHighlight": "Centrais",
+    "ourReach": "Nosso Alcance",
+    "measurableImpact": "Impacto",
+    "measurableImpactHighlight": "Mensurável",
+    "ourMethodology": "Nossa Metodologia",
+    "strategicApproach": "Abordagem",
+    "strategicApproachHighlight": "Estratégica",
+    "features": {
+      "educationTechnology": {
+        "title": "Tecnologia Educacional",
+        "description": "Plataforma líder para educação financeira e preparação para o trabalho"
+      },
+      "communityCentered": {
+        "title": "Centrada na Comunidade",
+        "description": "Desenvolvida colaborativamente com membros da comunidade"
+      },
+      "multiLanguage": {
+        "title": "Multiidioma",
+        "description": "Acessível a populações diversas em todo o mundo"
+      },
+      "personalizedLearning": {
+        "title": "Aprendizado Personalizado",
+        "description": "Caminhos adaptativos adaptados às necessidades individuais"
+      },
+      "inclusiveDesign": {
+        "title": "Design Inclusivo",
+        "description": "Serve indivíduos de todas as habilidades e origens"
+      },
+      "fastImplementation": {
+        "title": "Implementação Rápida",
+        "description": "Implantação rápida com impacto comunitário duradouro"
+      }
+    },
+    "stats": {
+      "statesServed": "Estados Atendidos",
+      "learnersImpacted": "Aprendizes Impactados",
+      "communityPartners": "Parceiros Comunitários",
+      "satisfactionRate": "Taxa de Satisfação"
+    },
+    "methodology": {
+      "communityDriven": {
+        "title": "Desenvolvimento Impulsionado pela Comunidade",
+        "description": "A plataforma combina simulações interativas com caminhos de aprendizado personalizados para desenvolver habilidades essenciais de vida e trabalho, com tudo desenvolvido colaborativamente com membros da comunidade e continuamente adaptado com base em seu feedback."
+      },
+      "inclusiveDesign": {
+        "title": "Design Inclusivo",
+        "description": "O design inclusivo do Stickball serve indivíduos de todas as habilidades e origens, com acessibilidade multiidioma garantindo que o programa sirva populações diversas."
+      },
+      "bottomUpStrategy": {
+        "title": "Estratégia de Baixo para Cima",
+        "description": "A abordagem de baixo para cima da empresa garante que as ferramentas educacionais permaneçam nas comunidades por toda a vida, criando impacto duradouro através de parcerias locais sustentadas."
+      },
+      "lastingImpact": {
+        "title": "Impacto Duradouro",
+        "description": "Ao focar nas necessidades da comunidade e construir parcerias sustentáveis, criamos soluções educacionais que crescem e evoluem com as comunidades que servem."
+      }
+    }
+  },
+  "contact": {
+    "title": "Entre em",
+    "titleHighlight": "Contato",
+    "subtitle": "Pronto para levar Stickball para sua comunidade? Adoraríamos saber de você. Preencha o formulário abaixo e retornaremos em 24 horas.",
+    "contactInfo": {
+      "callUs": {
+        "title": "Ligue para Nós",
+        "description": "Fale diretamente com nossa equipe",
+        "details": ["+1 (555) 123-4567", "Seg-Sex: 9AM-6PM EST"]
+      },
+      "visitUs": {
+        "title": "Visite-nos",
+        "description": "Agende uma reunião presencial",
+        "details": ["123 Learning Street", "Education District, ED 12345"]
+      },
+      "responseTime": {
+        "title": "Tempo de Resposta",
+        "description": "Estamos aqui quando você precisar",
+        "details": ["Dentro de 24 horas", "Emergência: Mesmo dia"]
+      }
+    },
+    "cta": {
+      "title": "Pronto para Começar?",
+      "description": "Agende uma demo para ver Stickball em ação e aprender como podemos transformar o aprendizado em sua comunidade.",
+      "button": "Agendar Demo"
+    }
+  },
+  "emailForm": {
+    "title": "Entre em Contato",
+    "subtitle": "Envie-nos uma mensagem e retornaremos em 24 horas",
+    "fields": {
+      "name": {
+        "label": "Nome Completo *",
+        "placeholder": "Digite seu nome completo"
+      },
+      "organization": {
+        "label": "Organização",
+        "placeholder": "Sua empresa, escola ou organização"
+      },
+      "email": {
+        "label": "Endereço de Email *",
+        "placeholder": "seu.email@exemplo.com"
+      },
+      "message": {
+        "label": "Mensagem *",
+        "placeholder": "Conte-nos sobre seus objetivos e como podemos ajudar..."
+      }
+    },
+    "submit": {
+      "sending": "Enviando Mensagem...",
+      "send": "Enviar Mensagem"
+    },
+    "footer": "Sua mensagem será enviada para nossa equipe e retornaremos em 24 horas.",
+    "success": "Mensagem enviada com sucesso! Retornaremos em 24 horas.",
+    "error": "Ocorreu um erro inesperado"
+  },
+  "common": {
+    "welcome": "Bem-vindo ao Stickball",
+    "learnMore": "Saiba Mais"
+  }
+}
