@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Quote, GraduationCap, Building2, ArrowRight } from "lucide-react";
+import { Quote, GraduationCap, Building2, ArrowRight, Building } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
 
@@ -23,6 +23,15 @@ const testimonials = [
     rating: 5,
     icon: Building2,
     color: "green"
+  },
+  {
+    id: 3,
+    quoteKey: "testimonials.items.nathan.quote",
+    author: "Nathan Saller",
+    titleKey: "testimonials.items.nathan.title",
+    rating: 5,
+    icon: Building,
+    color: "purple"
   }
 ];
 
@@ -40,6 +49,13 @@ const colorVariants = {
     icon: "from-green-500 to-green-600",
     text: "text-green-700",
     accent: "text-green-600"
+  },
+  purple: {
+    bg: "from-purple-50 to-purple-100/50",
+    border: "border-purple-200/50",
+    icon: "from-purple-500 to-purple-600",
+    text: "text-purple-700",
+    accent: "text-purple-600"
   }
 };
 
@@ -49,7 +65,7 @@ export default function Testimonials() {
   const t = useTranslations();
   
   return (
-    <section className="py-24 bg-gradient-to-br from-slate-50 via-white to-purple-50/30 dark:from-background dark:via-[#1c1c1c] dark:to-[#2c2c2c] relative overflow-hidden">
+    <section className="md:py-24 py-10 bg-gradient-to-br from-slate-50 via-white to-purple-50/30 dark:from-background dark:via-[#1c1c1c] dark:to-[#2c2c2c] relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 right-10 w-32 h-32 bg-blue-100/20 dark:bg-blue-900/20 rounded-full blur-3xl"></div>
@@ -57,44 +73,18 @@ export default function Testimonials() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 relative z-10">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="text-center mb-20"
-        >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            className="inline-block mb-6"
-          >
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent text-lg font-semibold tracking-wider uppercase">
-              {t("testimonials.successStories")}
-            </span>
-          </motion.div>
-
-          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-8 leading-tight">
-            {t("testimonials.title")} <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">{t("testimonials.titleHighlight")}</span>
-          </h2>
-          <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
-            {t("testimonials.subtitle")}
-          </p>
-        </motion.div>
-
         {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
-          {testimonials.map((testimonial) => (
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20">
+          {testimonials.map((testimonial, index) => (
             <motion.div
               key={testimonial.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="group relative hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300"
+              className={`group relative hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300 ${
+                index === 2 ? 'lg:col-start-1 lg:col-end-3 lg:mx-auto lg:max-w-2xl' : ''
+              }`}
             >
               {/* Testimonial Card */}
               <div className={`bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-10 rounded-3xl shadow-xl border border-white/50 dark:border-gray-700/50 h-full relative overflow-hidden`}>
@@ -147,7 +137,7 @@ export default function Testimonials() {
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="text-center"
         >
-          <div className="bg-gradient-to-r from-white to-blue-50/50 dark:from-gray-800 dark:to-gray-700 p-12 rounded-3xl shadow-2xl border border-white/50 dark:border-gray-700 backdrop-blur-sm max-w-5xl mx-auto hover:scale-[1.02] transition-all duration-300">
+          <div className="bg-gradient-to-r from-white to-blue-50/50 dark:from-gray-800 dark:to-gray-700 md:p-12 p-6 rounded-3xl shadow-2xl border border-white/50 dark:border-gray-700 backdrop-blur-sm max-w-5xl mx-auto hover:scale-[1.02] transition-all duration-300">
             <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
               {t("testimonials.ctaTitle")}
             </h3>
@@ -155,7 +145,7 @@ export default function Testimonials() {
               {t("testimonials.ctaDescription")}
             </p>
             <button
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 sm:px-10 py-4 text-lg rounded-full font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 inline-flex items-center gap-3"
+              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 sm:px-10 py-4 md:text-lg text-base rounded-full font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 inline-flex items-center gap-3"
               onClick={() => router.push(`/${locale}/contact`)}
             >
               {t("testimonials.ctaButton")}

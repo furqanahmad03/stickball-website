@@ -2,6 +2,7 @@
   "navigation": {
     "home": "Home",
     "about": "About",
+    "methodology": "Methodology",
     "contact": "Contact"
   },
   "navbar": {
@@ -16,15 +17,15 @@
     "currentLanguage": "Current language"
   },
   "hero": {
-    "headline1": "Lessons that Stick.",
-    "headline2": "Impact that Lasts.",
+    "headline1": "\"I wish I had this when I was a kid\"",
+    "headline2": "Said by... well, honestly everyone",
     "subheadline": "Stickball is a community-centered, AI-enabled learning platform that helps schools, employers, and communities build lasting skills targeted to the needs of every learner. Fast to deploy, customizable for any audience, and proven to deliver measurable impact.",
     "ctaButton": "Book a Demo",
     "altText": "Stickball Hero Section"
   },
   "featureTiles": {
-    "title": "Why Choose Stickball?",
-    "subtitle": "Our platform is designed with flexibility and accessibility in mind, ensuring every learner gets the support they need to succeed.",
+    "title": "Beyond Traditional Learning",
+    "subtitle": "Cutting-edge tech and immersive simulations that make skills stick.",
     "ctaText": "Ready to see these features in action?",
     "ctaButton": "Get Started Today",
     "features": {
@@ -34,19 +35,19 @@
       },
       "fastDeploy": {
         "title": "Fast to Deploy",
-        "description": "Launch in a matter of days, with no IT overhead"
+        "description": "Up and running in hours, with no IT overhead"
       },
       "anyLanguage": {
         "title": "Available in Any Language",
-        "description": "Designed to reflect the language and culture of every learner"
+        "description": "Localized for culture and language, making learning accessible to everyone, everywhere"
       },
       "accessible": {
         "title": "Accessible by Design",
-        "description": "Built for learners with diverse needs and abilities"
+        "description": "Built to support every learner's unique needs and abilities"
       },
       "mobileFriendly": {
         "title": "Mobile-Friendly",
-        "description": "Runs on any device, no app required"
+        "description": "Runs seamlessly on any device, with no app required"
       }
     }
   },
@@ -100,33 +101,33 @@
     }
   },
   "whoWeServe": {
-    "audience": "Our Audience",
-    "title": "Built to Serve",
-    "titleHighlight": "All Learners",
-    "subtitle": "From classrooms to boardrooms, from city halls to community centers - Stickball adapts to serve every learning environment and audience.",
+    "audience": "Use Cases",
+    "title": "How Stickball is",
+    "titleHighlight": "Being Used Today",
+    "subtitle": "Lessons that stick. Impact that lasts.",
     "ctaTitle": "Want to know how Stickball can work for your community?",
     "ctaDescription": "Let's discuss your specific needs and show you how our platform can be tailored to serve your learners.",
     "ctaButton": "Click here to book a demo",
     "audiences": {
-      "schools": {
-        "title": "Schools & Educators",
-        "description": "Turnkey classroom solutions and supplemental programs"
+      "financialLiteracy": {
+        "title": "Financial Literacy",
+        "description": "Equipping K-12 students, college learners, and communities with practical money skills-delivered in an engaging way that actually sticks."
       },
-      "communities": {
-        "title": "Communities and Cities",
-        "description": "Equip communities with life and career skills that improve access to knowledge, strengthen competitiveness, and build local capacity."
+      "workforceReadiness": {
+        "title": "Workforce Readiness",
+        "description": "Building the professional and soft skills employers demand, so learners are prepared to thrive in local job markets."
       },
-      "employers": {
-        "title": "Employers & Workforce Programs",
-        "description": "Upskill employees and jobseekers with highly targeted job-ready training"
+      "healthcare101": {
+        "title": "Healthcare 101",
+        "description": "Simplifying employee benefits and promoting healthier choices through clear, relatable learning experiences."
       },
-      "banks": {
-        "title": "Banks and Credit Unions",
-        "description": "Out-of-the-box Community Reinvestment Act (CRA) compliance, with measurable local impact in LMI communities"
+      "communityWellness": {
+        "title": "Community Wellness",
+        "description": "Tackling challenges like food insecurity with targeted, simulation-based programs that strengthen local communities."
       },
-      "sponsors": {
-        "title": "Community Sponsors",
-        "description": "Reach individuals directly where they live and work, with programs that reflect their unique languages, cultures, and needs"
+      "aiLiteracy": {
+        "title": "AI Literacy",
+        "description": "Empowering learners to use AI productively and responsibly-in school, at work, and in everyday life."
       }
     }
   },
@@ -173,10 +174,6 @@
     }
   },
   "testimonials": {
-    "successStories": "Success Stories",
-    "title": "What Our",
-    "titleHighlight": "Partners Are Saying",
-    "subtitle": "Hear directly from educators and community leaders about the impact Stickball is making in their institutions and communities.",
     "ctaTitle": "Join Our Growing Network of Partners",
     "ctaDescription": "See how Stickball can transform learning in your institution or community.",
     "ctaButton": "Start Your Partnership Today",
@@ -190,31 +187,27 @@
         "quote": "Our students thrive when we connect learning with real-world experiences... Thanks to Bellwether Community Credit Union and Stickball, we're giving students a fun, hands-on way to build confidence, collaboration, and essential life skills.",
         "author": "Dr. Jenn Chmiel",
         "title": "Superintendent of Manchester School District"
+      },
+      "nathan": {
+        "quote": "Partnering with Stickball and Manchester schools lets us make a meaningful impact where it matters most—right in the heart of the community.",
+        "author": "Nathan Saller",
+        "title": "President and CEO of Bellwether Credit Union"
       }
     }
   },
   "callToAction": {
-    "badge": "Ready to Transform Learning?",
     "title": "Bring Stickball to Your",
-    "titleHighlight": "Community",
     "description": "We'd love to show you how Stickball can serve your learners, your community, or your organization. Let's talk about your goals and how we can help.",
     "ctaButton": "Request a Demo",
-    "benefits": {
-      "communityImpact": {
-        "title": "Community Impact",
-        "description": "Transform learning outcomes across your entire community"
-      },
-      "measurableResults": {
-        "title": "Measurable Results",
-        "description": "Track progress with data-driven insights and analytics"
-      },
-      "fastImplementation": {
-        "title": "Fast Implementation",
-        "description": "Get up and running in days, not months"
-      }
-    },
     "trustIndicator": "Trusted by educators, community leaders, and organizations across",
-    "statesCount": "10+ states"
+    "statesCount": "10+ states",
+    "rotatorWords": {
+      "community": "Community",
+      "schoolDistrict": "School District",
+      "college": "College",
+      "company": "Company",
+      "organisation": "Organisation"
+    }
   },
   "about": {
     "ourStory": "Our Story",
@@ -342,5 +335,9 @@
   "common": {
     "welcome": "Welcome to Stickball",
     "learnMore": "Learn More"
+  },
+  "pressKit": {
+    "title": "Press Kit",
+    "subtitle": "Stickball - \"I wish I had this when I was a kid\" - Said by... well, honestly everyone"
   }
 }

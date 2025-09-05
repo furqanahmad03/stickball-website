@@ -13,7 +13,7 @@ export default function HeroSection() {
   const t = useTranslations();
   const locale = useLocale();
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center overflow-hidden pt-24">
       {/* Dark Mode Gradient Shadow */}
       {theme === "dark" && (
         <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-gray-900/70 to-black/60 pointer-events-none z-0"></div>
@@ -38,12 +38,12 @@ export default function HeroSection() {
       </div>
 
       {/* Text Content - Left Aligned */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="space-y-8 max-w-3xl"
+          className="space-y-8 max-w-5xl"
         >
           {/* Dark Mode Glow Effect */}
           {theme === "dark" && (

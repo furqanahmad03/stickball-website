@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BookOpen, Zap, Globe, Accessibility, Smartphone } from "lucide-react";
+import { BookOpen, Zap, Globe, PersonStanding, Smartphone } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
 import { useRouter } from "next/navigation";
 
@@ -25,7 +25,7 @@ const features = [
     color: "purple"
   },
   {
-    icon: Accessibility,
+    icon: PersonStanding,
     titleKey: "featureTiles.features.accessible.title",
     descriptionKey: "featureTiles.features.accessible.description",
     color: "orange"
@@ -51,7 +51,7 @@ export default function FeatureTiles() {
   const locale = useLocale();
   const router = useRouter();
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-50 via-indigo-50/40 to-purple-100/60 dark:from-[#2c2c2c] dark:via-[#1c1c1c] dark:to-background">
+    <section className="md:py-20 py-10 bg-gradient-to-br from-blue-50 via-indigo-50/40 to-purple-100/60 dark:from-[#2c2c2c] dark:via-[#1c1c1c] dark:to-background">
       <div className="max-w-7xl mx-auto px-4">
         {/* Section Header */}
         <motion.div

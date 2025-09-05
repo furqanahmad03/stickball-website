@@ -70,14 +70,14 @@ const colorVariants = {
   },
 };
 
-export default function OurMethodology() {
+export default function Page() {
   const locale = useLocale();
   const router = useRouter();
   const t = useTranslations();
   
   return (
-    <>
-      <section className="pt-24 bg-gradient-to-br from-slate-50 via-white to-blue-50/30 dark:from-background dark:via-[#1c1c1c] dark:to-[#2c2c2c] relative overflow-hidden">
+    <div className="mt-10">
+      <section className="md:py-24 py-12 bg-gradient-to-br from-slate-50 via-white to-blue-50/30 dark:from-background dark:via-[#1c1c1c] dark:to-[#2c2c2c] relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-20 left-10 w-32 h-32 bg-blue-100/20 dark:bg-blue-900/20 rounded-full blur-3xl"></div>
@@ -92,7 +92,7 @@ export default function OurMethodology() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-center mb-24"
+            className="text-center"
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -217,7 +217,7 @@ export default function OurMethodology() {
           </motion.div>
         </div>
       </section>
-      <section className="py-24 bg-gradient-to-br from-slate-50 via-white to-blue-50/30 dark:from-[#2c2c2c] dark:via-[#1c1c1c] dark:to-background relative overflow-hidden">
+      <section className="md:py-24 py-12 bg-gradient-to-br from-slate-50 via-white to-blue-50/30 dark:from-[#2c2c2c] dark:via-[#1c1c1c] dark:to-background relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-20 left-10 w-32 h-32 bg-blue-100/20 dark:bg-blue-900/20 rounded-full blur-3xl"></div>
@@ -451,6 +451,6 @@ export default function OurMethodology() {
           </motion.div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

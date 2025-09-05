@@ -2,6 +2,7 @@
   "navigation": {
     "home": "Inicio",
     "about": "Acerca de",
+    "methodology": "Metodología",
     "contact": "Contacto"
   },
   "navbar": {
@@ -16,15 +17,15 @@
     "currentLanguage": "Idioma actual"
   },
   "hero": {
-    "headline1": "Lecciones que Permanecen.",
-    "headline2": "Impacto que Perdura.",
+    "headline1": "\"Ojalá hubiera tenido esto cuando era niño\"",
+    "headline2": "Dicho por... bueno, honestamente todos",
     "subheadline": "Stickball es una plataforma de aprendizaje centrada en la comunidad y habilitada por IA que ayuda a escuelas, empleadores y comunidades a desarrollar habilidades duraderas dirigidas a las necesidades de cada aprendiz. Rápida de implementar, personalizable para cualquier audiencia y probada para entregar impacto medible.",
     "ctaButton": "Reservar Demo",
     "altText": "Sección Hero de Stickball"
   },
   "featureTiles": {
-    "title": "¿Por Qué Elegir Stickball?",
-    "subtitle": "Nuestra plataforma está diseñada con flexibilidad y accesibilidad en mente, asegurando que cada aprendiz reciba el apoyo que necesita para tener éxito.",
+    "title": "Más Allá del Aprendizaje Tradicional",
+    "subtitle": "Tecnología de vanguardia y simulaciones inmersivas que hacen que las habilidades perduren.",
     "ctaText": "¿Listo para ver estas características en acción?",
     "ctaButton": "Comenzar Hoy",
     "features": {
@@ -34,19 +35,19 @@
       },
       "fastDeploy": {
         "title": "Rápida de Implementar",
-        "description": "Lanza en cuestión de días, sin sobrecarga de TI"
+        "description": "Funcionando en horas, sin sobrecarga de TI"
       },
       "anyLanguage": {
         "title": "Disponible en Cualquier Idioma",
-        "description": "Diseñada para reflejar el idioma y cultura de cada aprendiz"
+        "description": "Localizada para cultura e idioma, haciendo el aprendizaje accesible para todos, en todas partes"
       },
       "accessible": {
         "title": "Accesible por Diseño",
-        "description": "Construida para aprendices con diversas necesidades y habilidades"
+        "description": "Construida para apoyar las necesidades y habilidades únicas de cada aprendiz"
       },
       "mobileFriendly": {
         "title": "Compatible con Móviles",
-        "description": "Funciona en cualquier dispositivo, no se requiere aplicación"
+        "description": "Funciona perfectamente en cualquier dispositivo, sin aplicación requerida"
       }
     }
   },
@@ -100,33 +101,33 @@
     }
   },
   "whoWeServe": {
-    "audience": "Nuestra Audiencia",
-    "title": "Construido para Servir",
-    "titleHighlight": "Todos los Aprendices",
-    "subtitle": "Desde aulas hasta salas de juntas, desde ayuntamientos hasta centros comunitarios - Stickball se adapta para servir cada entorno de aprendizaje y audiencia.",
+    "audience": "Casos de Uso",
+    "title": "Cómo se está usando Stickball",
+    "titleHighlight": "hoy",
+    "subtitle": "Lecciones que perduran. Impacto que dura.",
     "ctaTitle": "¿Quieres saber cómo Stickball puede funcionar para tu comunidad?",
     "ctaDescription": "Hablemos de tus necesidades específicas y te mostremos cómo nuestra plataforma puede ser adaptada para servir a tus aprendices.",
     "ctaButton": "Haz clic aquí para reservar una demo",
     "audiences": {
-      "schools": {
-        "title": "Escuelas y Educadores",
-        "description": "Soluciones de aula llave en mano y programas complementarios"
+      "financialLiteracy": {
+        "title": "Alfabetización Financiera",
+        "description": "Equipando a estudiantes K-12, aprendices universitarios y comunidades con habilidades prácticas de dinero-entregadas de una manera atractiva que realmente perdura."
       },
-      "communities": {
-        "title": "Comunidades y Ciudades",
-        "description": "Equipa a las comunidades con habilidades de vida y carrera que mejoran el acceso al conocimiento, fortalecen la competitividad y construyen capacidad local."
+      "workforceReadiness": {
+        "title": "Preparación para la Fuerza Laboral",
+        "description": "Construyendo las habilidades profesionales y blandas que los empleadores demandan, para que los aprendices estén preparados para prosperar en los mercados laborales locales."
       },
-      "employers": {
-        "title": "Empleadores y Programas de Fuerza Laboral",
-        "description": "Mejora las habilidades de empleados y buscadores de empleo con capacitación altamente dirigida y lista para el trabajo"
+      "healthcare101": {
+        "title": "Salud 101",
+        "description": "Simplificando los beneficios de los empleados y promoviendo elecciones más saludables a través de experiencias de aprendizaje claras y relacionables."
       },
-      "banks": {
-        "title": "Bancos y Cooperativas de Crédito",
-        "description": "Cumplimiento de la Ley de Reinversión Comunitaria (CRA) listo para usar, con impacto local medible en comunidades LMI"
+      "communityWellness": {
+        "title": "Bienestar Comunitario",
+        "description": "Abordando desafíos como la inseguridad alimentaria con programas basados en simulación dirigidos que fortalecen las comunidades locales."
       },
-      "sponsors": {
-        "title": "Patrocinadores Comunitarios",
-        "description": "Llega a individuos directamente donde viven y trabajan, con programas que reflejan sus idiomas, culturas y necesidades únicas"
+      "aiLiteracy": {
+        "title": "Alfabetización en IA",
+        "description": "Empoderando a los aprendices para usar la IA de manera productiva y responsable-en la escuela, en el trabajo y en la vida cotidiana."
       }
     }
   },
@@ -173,10 +174,6 @@
     }
   },
   "testimonials": {
-    "successStories": "Historias de Éxito",
-    "title": "Lo Que Dicen Nuestros",
-    "titleHighlight": "Socios",
-    "subtitle": "Escucha directamente de educadores y líderes comunitarios sobre el impacto que Stickball está teniendo en sus instituciones y comunidades.",
     "ctaTitle": "Únete a Nuestra Red Creciente de Socios",
     "ctaDescription": "Ve cómo Stickball puede transformar el aprendizaje en tu institución o comunidad.",
     "ctaButton": "Comienza Tu Asociación Hoy",
@@ -190,31 +187,27 @@
         "quote": "Nuestros estudiantes prosperan cuando conectamos el aprendizaje con experiencias del mundo real... Gracias a Bellwether Community Credit Union y Stickball, estamos dando a los estudiantes una forma divertida y práctica de construir confianza, colaboración y habilidades esenciales para la vida.",
         "author": "Dra. Jenn Chmiel",
         "title": "Superintendente del Distrito Escolar de Manchester"
+      },
+      "nathan": {
+        "quote": "La asociación con Stickball y las escuelas de Manchester nos permite generar un impacto significativo donde más importa: en el corazón de la comunidad.",
+        "author": "Nathan Saller",
+        "title": "Presidente y Director Ejecutivo de Bellwether Credit Union"
       }
     }
   },
   "callToAction": {
-    "badge": "¿Listo para Transformar el Aprendizaje?",
     "title": "Lleva Stickball a Tu",
-    "titleHighlight": "Comunidad",
     "description": "Nos encantaría mostrarte cómo Stickball puede servir a tus aprendices, tu comunidad o tu organización. Hablemos de tus objetivos y cómo podemos ayudar.",
     "ctaButton": "Solicitar Demo",
-    "benefits": {
-      "communityImpact": {
-        "title": "Impacto Comunitario",
-        "description": "Transforma los resultados de aprendizaje en toda tu comunidad"
-      },
-      "measurableResults": {
-        "title": "Resultados Medibles",
-        "description": "Rastrea el progreso con insights e análisis basados en datos"
-      },
-      "fastImplementation": {
-        "title": "Implementación Rápida",
-        "description": "Ponte en marcha en días, no meses"
-      }
-    },
     "trustIndicator": "Confiado por educadores, líderes comunitarios y organizaciones en",
-    "statesCount": "10+ estados"
+    "statesCount": "10+ estados",
+    "rotatorWords": {
+      "community": "Comunidad",
+      "schoolDistrict": "Distrito Escolar",
+      "college": "Universidad",
+      "company": "Empresa",
+      "organisation": "Organización"
+    }
   },
   "about": {
     "ourStory": "Nuestra Historia",
@@ -342,5 +335,9 @@
   "common": {
     "welcome": "Bienvenido a Stickball",
     "learnMore": "Saber Más"
+  },
+  "pressKit": {
+    "title": "Kit de Prensa",
+    "subtitle": "Stickball - \"Ojalá hubiera tenido esto cuando era niño\" - Dicho por... bueno, honestamente todos"
   }
 }

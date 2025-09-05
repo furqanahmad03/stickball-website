@@ -126,7 +126,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white mt-10 to-blue-50/30 dark:from-[#2c2c2c] dark:via-[#1c1c1c] dark:to-background">
       {/* Hero Section */}
-      <section className="py-24 bg-gradient-to-br from-blue-50 via-indigo-100 to-purple-100 dark:from-transparent dark:via-transparent dark:to-transparent relative overflow-hidden">
+      <section className="pt-24 md:pb-14 pb-8 bg-gradient-to-br from-slate-50 via-white to-blue-50/30 dark:from-[#2c2c2c] dark:via-[#1c1c1c] dark:to-background relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white dark:bg-white rounded-full translate-x-1/2 -translate-y-1/2 blur-3xl" />
@@ -175,21 +175,21 @@ export default function AboutPage() {
       </section>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 py-24">
+      <div className="max-w-7xl mx-auto px-4 py-14">
         {/* Mission Statement */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7 }}
-          className="text-center mb-24"
+          className="text-center md:mb-24 mb-12"
         >
           <motion.div 
             initial={{ opacity: 0, y: 30, scale: 0.95 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
-            className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-12 md:p-16 rounded-3xl shadow-2xl border border-white/50 dark:border-gray-700/50 max-w-6xl mx-auto hover:scale-[1.02] transition-all duration-300"
+            className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-6 md:p-12 rounded-3xl shadow-2xl border border-white/50 dark:border-gray-700/50 max-w-6xl mx-auto hover:scale-[1.02] transition-all duration-300"
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
@@ -229,7 +229,7 @@ export default function AboutPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7 }}
-          className="mb-24"
+          className="mb-12 md:mb-24"
         >
           <motion.div
             initial={{ opacity: 0, y: 30, scale: 0.95 }}
@@ -286,7 +286,7 @@ export default function AboutPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7 }}
-          className="mb-24"
+          className="mb-12 md:mb-24"
         >
           <motion.div
             initial={{ opacity: 0, y: 30, scale: 0.95 }}
@@ -343,14 +343,14 @@ export default function AboutPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7 }}
-          className="mb-24"
+          className="mb-12 md:mb-24"
         >
           <motion.div 
             initial={{ opacity: 0, y: 30, scale: 0.95 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
-            className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-12 md:p-16 rounded-3xl shadow-2xl border border-white/50 dark:border-gray-700/50 hover:scale-[1.02] transition-all duration-300"
+            className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-6 md:p-12 rounded-3xl shadow-2xl border border-white/50 dark:border-gray-700/50 hover:scale-[1.02] transition-all duration-300"
           >
             <motion.div
               initial={{ opacity: 0, y: 30, scale: 0.95 }}

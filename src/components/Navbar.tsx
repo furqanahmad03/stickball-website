@@ -22,6 +22,11 @@ const navigationItems = [
     current: false
   },
   {
+    nameKey: "navigation.methodology",
+    href: "/methodology",
+    current: false
+  },
+  {
     nameKey: "navigation.contact",
     href: "/contact",
     current: false
@@ -79,9 +84,11 @@ export default function Navbar() {
           </motion.div>
 
           {/* Navigation Links - Right Side */}
-          <div className="hidden lg:flex lg:items-center lg:space-x-8">
+          <div className="hidden lg:flex lg:items-center lg:space-x-4">
             {navigationItems.map((item) => {
-              const isActive = currentPath === item.href;
+              const isActive = item.href === "/" 
+                ? currentPath === `/${locale}` || currentPath === `/${locale}/`
+                : currentPath === `/${locale}${item.href}`;
               return (
                 <Link
                   key={item.nameKey}
@@ -149,7 +156,9 @@ export default function Navbar() {
           >
             <div className="px-4 py-6 space-y-4">
               {navigationItems.map((item) => {
-                const isActive = currentPath === item.href;
+                const isActive = item.href === "/" 
+                  ? currentPath === `/${locale}` || currentPath === `/${locale}/`
+                  : currentPath === `/${locale}${item.href}`;
                 return (
                   <Link
                     key={item.nameKey}
