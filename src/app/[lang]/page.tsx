@@ -9,9 +9,9 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      <FeatureTiles />
-      <WhoWeServe />
       <Testimonials />
+      <WhoWeServe />
+      <FeatureTiles />
       <PressHighlights />
       <CallToAction />
     </>

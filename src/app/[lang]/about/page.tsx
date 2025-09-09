@@ -1,128 +1,107 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { 
-  GraduationCap, 
-  Users, 
-  Globe, 
-  Target, 
-  Heart, 
-  Zap, 
-  Shield, 
-  TrendingUp,
-  MapPin,
+import {
   Lightbulb,
-  Handshake,
-  Star,
-  Sparkles
+  Sparkles,
+  Send,
+  AlertCircle,
+  Loader2,
+  Mail,
+  User,
+  Building,
+  MessageSquare
 } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
 import { useTranslations } from "next-intl";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { toast } from "sonner";
+import Image from "next/image";
+import { Textarea } from "@/components/ui/textarea";
 
-const keyFeatures = [
-  {
-    icon: GraduationCap,
-    titleKey: "about.features.educationTechnology.title",
-    descriptionKey: "about.features.educationTechnology.description",
-    color: "blue"
-  },
-  {
-    icon: Users,
-    titleKey: "about.features.communityCentered.title",
-    descriptionKey: "about.features.communityCentered.description",
-    color: "green"
-  },
-  {
-    icon: Globe,
-    titleKey: "about.features.multiLanguage.title",
-    descriptionKey: "about.features.multiLanguage.description",
-    color: "purple"
-  },
-  {
-    icon: Target,
-    titleKey: "about.features.personalizedLearning.title",
-    descriptionKey: "about.features.personalizedLearning.description",
-    color: "orange"
-  },
-  {
-    icon: Heart,
-    titleKey: "about.features.inclusiveDesign.title",
-    descriptionKey: "about.features.inclusiveDesign.description",
-    color: "red"
-  },
-  {
-    icon: Zap,
-    titleKey: "about.features.fastImplementation.title",
-    descriptionKey: "about.features.fastImplementation.description",
-    color: "yellow"
-  }
-];
+interface FormData {
+  name: string;
+  organization: string;
+  email: string;
+  message: string;
+}
 
-const impactStats = [
-  {
-    number: "10+",
-    labelKey: "about.stats.statesServed",
-    icon: MapPin,
-    color: "blue"
-  },
-  {
-    number: "1000+",
-    labelKey: "about.stats.learnersImpacted",
-    icon: Users,
-    color: "green"
-  },
-  {
-    number: "50+",
-    labelKey: "about.stats.communityPartners",
-    icon: Handshake,
-    color: "purple"
-  },
-  {
-    number: "95%",
-    labelKey: "about.stats.satisfactionRate",
-    icon: Star,
-    color: "yellow"
-  }
-];
-
-const colorVariants = {
-  blue: {
-    bg: "from-blue-500 to-blue-600",
-    text: "text-blue-600",
-    light: "bg-blue-50"
-  },
-  green: {
-    bg: "from-green-500 to-green-600",
-    text: "text-green-600",
-    light: "bg-green-50"
-  },
-  purple: {
-    bg: "from-purple-500 to-purple-600",
-    text: "text-purple-600",
-    light: "bg-purple-50"
-  },
-  orange: {
-    bg: "from-orange-500 to-orange-600",
-    text: "text-orange-600",
-    light: "bg-orange-50"
-  },
-  red: {
-    bg: "from-red-500 to-red-600",
-    text: "text-red-600",
-    light: "bg-red-50"
-  },
-  yellow: {
-    bg: "from-yellow-500 to-yellow-600",
-    text: "text-yellow-600",
-    light: "bg-yellow-50"
-  }
-};
-
-
+interface FormState {
+  isSubmitting: boolean;
+  error: string | null;
+}
 
 export default function AboutPage() {
   const t = useTranslations();
-  
+
+  const [formData, setFormData] = useState<FormData>({
+    name: "",
+    organization: "",
+    email: "",
+    message: ""
+  });
+
+  const [formState, setFormState] = useState<FormState>({
+    isSubmitting: false,
+    error: null
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+
+    // Clear error when user starts typing
+    if (formState.error) {
+      setFormState(prev => ({ ...prev, error: null }));
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormState(prev => ({ ...prev, isSubmitting: true, error: null }));
+
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to send email');
+      }
+
+      setFormState(prev => ({ ...prev, isSubmitting: false }));
+
+      // Show success toast
+      toast.success(t('emailForm.success'));
+
+      // Reset form data
+      setFormData({
+        name: "",
+        organization: "",
+        email: "",
+        message: ""
+      });
+
+    } catch (error) {
+      setFormState(prev => ({
+        ...prev,
+        error: error instanceof Error ? error.message : t('emailForm.error'),
+        isSubmitting: false
+      }));
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white mt-10 to-blue-50/30 dark:from-[#2c2c2c] dark:via-[#1c1c1c] dark:to-background">
       {/* Hero Section */}
@@ -153,7 +132,7 @@ export default function AboutPage() {
               </span>
             </motion.div>
 
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.4 }}
@@ -161,8 +140,8 @@ export default function AboutPage() {
             >
               {t("about.title")} <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">{t("about.titleHighlight")}</span>
             </motion.h1>
-            
-            <motion.p 
+
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
@@ -184,7 +163,7 @@ export default function AboutPage() {
           transition={{ duration: 0.7 }}
           className="text-center md:mb-24 mb-12"
         >
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30, scale: 0.95 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -200,8 +179,8 @@ export default function AboutPage() {
             >
               <Lightbulb className="h-10 w-10 text-white" />
             </motion.div>
-            
-            <motion.h2 
+
+            <motion.h2
               initial={{ opacity: 0, y: 30, scale: 0.95 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -210,8 +189,8 @@ export default function AboutPage() {
             >
               {t("about.mission")}
             </motion.h2>
-            
-            <motion.p 
+
+            <motion.p
               initial={{ opacity: 0, y: 30, scale: 0.95 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -223,13 +202,19 @@ export default function AboutPage() {
           </motion.div>
         </motion.div>
 
-        {/* Key Features Grid */}
+        {/* Our Team Section */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7 }}
-          className="mb-12 md:mb-24"
+          className="text-center md:mb-24 mb-12 min-h-fit"
+          style={{
+            backgroundImage: "url('/team-bg.png')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat"
+          }}
         >
           <motion.div
             initial={{ opacity: 0, y: 30, scale: 0.95 }}
@@ -238,243 +223,265 @@ export default function AboutPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent text-lg font-semibold tracking-wider uppercase mb-4 inline-block">
-              {t("about.whatMakesUsDifferent")}
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
-              {t("about.coreStrengths")} <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">{t("about.coreStrengthsHighlight")}</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+              {t("about.ourTeam")}
             </h2>
           </motion.div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {keyFeatures.map((feature, index) => (
-              <motion.div
-                key={feature.titleKey}
-                initial={{ opacity: 0, y: 30, scale: 0.9 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group hover:-translate-y-2 hover:scale-[1.02] transition-all duration-300"
-              >
-                <Card className="shadow-xl border-0 hover:shadow-2xl transition-all duration-300 h-full bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-3xl overflow-hidden">
-                  <CardContent className="p-8 text-center">
-                    <motion.div 
-                      initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
-                      whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-                      viewport={{ once: true, margin: "-50px" }}
-                      transition={{ duration: 0.5 }}
-                      className={`inline-flex p-6 rounded-3xl bg-gradient-to-br ${colorVariants[feature.color as keyof typeof colorVariants].bg} shadow-lg mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}
-                    >
-                      <feature.icon className="h-10 w-10 text-white" />
-                    </motion.div>
-                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                      {t(feature.titleKey)}
-                    </h3>
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
-                      {t(feature.descriptionKey)}
-                    </p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
 
-        {/* Impact Statistics */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7 }}
-          className="mb-12 md:mb-24"
-        >
           <motion.div
-            initial={{ opacity: 0, y: 30, scale: 0.95 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="relative rounded-3xl shadow-2xl overflow-hidden min-h-[400px] bg-transparent"
           >
-            <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent text-lg font-semibold tracking-wider uppercase mb-4 inline-block">
-              {t("about.ourReach")}
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
-              {t("about.measurableImpact")} <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">{t("about.measurableImpactHighlight")}</span>
-            </h2>
-          </motion.div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {impactStats.map((stat, index) => (
-              <motion.div
-                key={stat.labelKey}
-                initial={{ opacity: 0, y: 30, scale: 0.9 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="text-center group hover:scale-105 transition-all duration-300"
-              >
-                <Card className="shadow-xl border-0 hover:shadow-2xl transition-all duration-300 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-3xl">
-                  <CardContent className="p-10">
-                    <motion.div 
-                      initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
-                      whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-                      viewport={{ once: true, margin: "-50px" }}
-                      transition={{ duration: 0.5 }}
-                      className={`inline-flex p-6 rounded-3xl bg-gradient-to-br ${colorVariants[stat.color as keyof typeof colorVariants].bg} shadow-lg mb-6 group-hover:scale-110 transition-all duration-300`}
-                    >
-                      <stat.icon className="h-10 w-10 text-white" />
-                    </motion.div>
-                    <div className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-3">
-                      {stat.number}
-                    </div>
-                    <p className="text-gray-600 dark:text-gray-300 font-semibold text-lg">
-                      {t(stat.labelKey)}
-                    </p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+            {/* Overlay for better text readability */}
+            <div className="absolute inset-0 bg-transparent" />
 
-        {/* Detailed Description */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7 }}
-          className="mb-12 md:mb-24"
-        >
-          <motion.div 
-            initial={{ opacity: 0, y: 30, scale: 0.95 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-            className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-6 md:p-12 rounded-3xl shadow-2xl border border-white/50 dark:border-gray-700/50 hover:scale-[1.02] transition-all duration-300"
-          >
-            <motion.div
-              initial={{ opacity: 0, y: 30, scale: 0.95 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-12"
-            >
-              <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent text-lg font-semibold tracking-wider uppercase mb-4 inline-block">
-                {t("about.ourMethodology")}
-              </span>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
-                {t("about.strategicApproach")} <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">{t("about.strategicApproachHighlight")}</span>
-              </h2>
-            </motion.div>
-            
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              <div className="space-y-8">
+            <div className="relative z-10 p-8 md:p-12 h-full">
+              <div className="flex flex-col md:flex-row items-center justify-center md:gap-72 gap-20 h-full">
+                {/* Sahal Laher - CEO */}
                 <motion.div
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.6, delay: 0.2 }}
-                  className="flex items-start gap-6 group hover:scale-105 transition-all duration-300"
+                  className="text-center group hover:scale-105 transition-all duration-300"
                 >
-                  <motion.div 
-                    initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
-                    whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-                    viewport={{ once: true, margin: "-50px" }}
-                    transition={{ duration: 0.5 }}
-                    className="p-4 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex-shrink-0 shadow-lg"
-                  >
-                    <Shield className="h-8 w-8 text-white" />
-                  </motion.div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
-                      {t("about.methodology.communityDriven.title")}
-                    </h3>
-                    <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg">
-                      {t("about.methodology.communityDriven.description")}
-                    </p>
+                  <div className="relative mb-6">
+                    <div className="w-48 h-48 rounded-full overflow-hidden shadow-2xl border-4 border-white dark:border-gray-700 group-hover:shadow-3xl transition-all duration-300">
+                      <Image
+                        src="/sahal.png"
+                        alt="Sahal Laher"
+                        width={192}
+                        height={192}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="absolute -top-2 -right-2 w-10 h-10 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center shadow-lg">
+                      <Sparkles className="h-5 w-5 text-white" />
+                    </div>
                   </div>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                    {t("about.team.sahal.name")}
+                  </h3>
+                  <p className="text-lg text-blue-600 dark:text-blue-400 font-semibold">
+                    {t("about.team.sahal.title")}
+                  </p>
                 </motion.div>
-                
+
+                {/* Devin McCourty - Advisor */}
                 <motion.div
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.6, delay: 0.35 }}
-                  className="flex items-start gap-6 group hover:scale-105 transition-all duration-300"
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                  className="text-center group hover:scale-105 transition-all duration-300"
                 >
-                  <motion.div 
-                    initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
-                    whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-                    viewport={{ once: true, margin: "-50px" }}
-                    transition={{ duration: 0.5 }}
-                    className="p-4 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex-shrink-0 shadow-lg"
-                  >
-                    <Heart className="h-8 w-8 text-white" />
-                  </motion.div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
-                      {t("about.methodology.inclusiveDesign.title")}
-                    </h3>
-                    <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg">
-                      {t("about.methodology.inclusiveDesign.description")}
-                    </p>
+                  <div className="relative mb-6">
+                    <div className="w-48 h-48 rounded-full overflow-hidden shadow-2xl border-4 border-white dark:border-gray-700 group-hover:shadow-3xl transition-all duration-300">
+                      <Image
+                        src="/devin.png"
+                        alt="Devin McCourty"
+                        width={192}
+                        height={192}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="absolute -top-2 -right-2 w-10 h-10 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center shadow-lg">
+                      <Sparkles className="h-5 w-5 text-white" />
+                    </div>
                   </div>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                    {t("about.team.devin.name")}
+                  </h3>
+                  <p className="text-lg text-blue-600 dark:text-blue-400 font-semibold">
+                    {t("about.team.devin.title")}
+                  </p>
                 </motion.div>
               </div>
-              
-              <div className="space-y-8">
-                <motion.div
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
-                  className="flex items-start gap-6 group hover:scale-105 transition-all duration-300"
-                >
-                  <motion.div 
-                    initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
-                    whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-                    viewport={{ once: true, margin: "-50px" }}
-                    transition={{ duration: 0.5 }}
-                    className="p-4 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex-shrink-0 shadow-lg"
-                  >
-                    <TrendingUp className="h-8 w-8 text-white" />
-                  </motion.div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
-                      {t("about.methodology.bottomUpStrategy.title")}
-                    </h3>
-                    <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg">
-                      {t("about.methodology.bottomUpStrategy.description")}
+            </div>
+          </motion.div>
+        </motion.div>
+
+        {/* Contact Form Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7 }}
+          className="text-center"
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 30, scale: 0.95 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+            className="mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+              {t("contact.title")} <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">{t("contact.titleHighlight")}</span>
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              {t("contact.subtitle")}
+            </p>
+          </motion.div>
+
+          {/* Contact Form with Image */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+            className="max-w-7xl mx-auto"
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+              {/* Left Side - Contact Image */}
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="order-2 lg:order-1 md:block hidden"
+              >
+                <Image
+                  src="/contact-image.png"
+                  alt="Contact Us"
+                  width={400}
+                  height={300}
+                  className="w-full h-auto max-w-md mx-auto"
+                />
+              </motion.div>
+
+              {/* Right Side - Contact Form */}
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="order-1 lg:order-2"
+              >
+                <div className="p-8 md:p-12">
+                  {/* Error Message */}
+                  {formState.error && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg flex items-center gap-3 text-red-700 dark:text-red-400"
+                    >
+                      <AlertCircle className="h-5 w-5 flex-shrink-0" />
+                      <span>{formState.error}</span>
+                    </motion.div>
+                  )}
+
+                  <form onSubmit={handleSubmit} className="space-y-8">
+                    {/* Top Row - Name and Email */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="space-y-2">
+                        <Label htmlFor="name" className="text-gray-700 dark:text-gray-300 font-medium flex items-center gap-2">
+                          <User className="h-4 w-4" />
+                          {t('emailForm.fields.name.label')}
+                        </Label>
+                        <Input
+                          id="name"
+                          name="name"
+                          type="text"
+                          required
+                          value={formData.name}
+                          onChange={handleInputChange}
+                          placeholder={t('emailForm.fields.name.placeholder')}
+                          className="h-12 text-base border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200"
+                        />
+                      </div>
+
+                      <div className="space-y-2">
+                        <Label htmlFor="email" className="text-gray-700 dark:text-gray-300 font-medium flex items-center gap-2">
+                          <Mail className="h-4 w-4" />
+                          {t('emailForm.fields.email.label')}
+                        </Label>
+                        <Input
+                          id="email"
+                          name="email"
+                          type="email"
+                          required
+                          value={formData.email}
+                          onChange={handleInputChange}
+                          placeholder={t('emailForm.fields.email.placeholder')}
+                          className="h-12 text-base border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Middle Row - Organization */}
+                    <div className="space-y-2">
+                      <Label htmlFor="organization" className="text-gray-700 dark:text-gray-300 font-medium flex items-center gap-2">
+                        <Building className="h-4 w-4" />
+                        {t('emailForm.fields.organization.label')}
+                      </Label>
+                      <Input
+                        id="organization"
+                        name="organization"
+                        type="text"
+                        value={formData.organization}
+                        onChange={handleInputChange}
+                        placeholder={t('emailForm.fields.organization.placeholder')}
+                        className="h-12 text-base border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200"
+                      />
+                    </div>
+
+                    {/* Message Field */}
+                    <div className="space-y-2">
+                      <Label htmlFor="message" className="text-gray-700 dark:text-gray-300 font-medium flex items-center gap-2">
+                        <MessageSquare className="h-4 w-4" />
+                        {t('emailForm.fields.message.label')}
+                      </Label>
+                      <Textarea
+                        id="message"
+                        name="message"
+                        required
+                        value={formData.message}
+                        onChange={handleInputChange}
+                        placeholder={t('emailForm.fields.message.placeholder')}
+                        rows={4}
+                        className="w-full px-4 py-3 text-base border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200 resize-none"
+                      />
+                    </div>
+
+                    {/* Submit Button */}
+                    <div className="flex justify-end">
+                      <motion.div
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        <Button
+                          type="submit"
+                          disabled={formState.isSubmitting}
+                          className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white text-sm font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                        >
+                          {formState.isSubmitting ? (
+                            <>
+                              <Loader2 className="h-4 w-4 animate-spin" />
+                              {t('emailForm.submit.sending')}
+                            </>
+                          ) : (
+                            <>
+                              <Send className="h-4 w-4" />
+                              {t('emailForm.submit.send')}
+                            </>
+                          )}
+                        </Button>
+                      </motion.div>
+                    </div>
+                  </form>
+
+                  {/* Footer Note */}
+                  <div className="mt-6 text-center">
+                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                      {t('emailForm.footer')}
                     </p>
                   </div>
-                </motion.div>
-                
-                <motion.div
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.6, delay: 0.45 }}
-                  className="flex items-start gap-6 group hover:scale-105 transition-all duration-300"
-                >
-                  <motion.div 
-                    initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
-                    whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-                    viewport={{ once: true, margin: "-50px" }}
-                    transition={{ duration: 0.5 }}
-                    className="p-4 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex-shrink-0 shadow-lg"
-                  >
-                    <Zap className="h-8 w-8 text-white" />
-                  </motion.div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
-                      {t("about.methodology.lastingImpact.title")}
-                    </h3>
-                    <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg">
-                      {t("about.methodology.lastingImpact.description")}
-                    </p>
-                  </div>
-                </motion.div>
-              </div>
+                </div>
+              </motion.div>
             </div>
           </motion.div>
         </motion.div>

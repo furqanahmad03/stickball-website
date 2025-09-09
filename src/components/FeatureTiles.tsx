@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BookOpen, Zap, Globe, PersonStanding, Smartphone } from "lucide-react";
+import { BookOpen, Zap, Globe, PersonStanding, Smartphone, Users } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
 import { useRouter } from "next/navigation";
 
@@ -35,6 +35,12 @@ const features = [
     titleKey: "featureTiles.features.mobileFriendly.title",
     descriptionKey: "featureTiles.features.mobileFriendly.description",
     color: "indigo"
+  },
+  {
+    icon: Users,
+    titleKey: "featureTiles.features.coCreated.title",
+    descriptionKey: "featureTiles.features.coCreated.description",
+    color: "teal"
   }
 ];
 
@@ -43,7 +49,8 @@ const colorVariants = {
   green: "bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400",
   purple: "bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400",
   orange: "bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400",
-  indigo: "bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400"
+  indigo: "bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400",
+  teal: "bg-teal-100 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400"
 };
 
 export default function FeatureTiles() {

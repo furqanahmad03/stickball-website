@@ -4,6 +4,13 @@ import { motion } from "framer-motion";
 import { Quote, GraduationCap, Building2, ArrowRight, Building } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const testimonials = [
   {
@@ -29,6 +36,33 @@ const testimonials = [
     quoteKey: "testimonials.items.nathan.quote",
     author: "Nathan Saller",
     titleKey: "testimonials.items.nathan.title",
+    rating: 5,
+    icon: Building,
+    color: "purple"
+  },
+  {
+    id: 4,
+    quoteKey: "testimonials.items.devin.quote",
+    author: "Devin McCourty",
+    titleKey: "testimonials.items.devin.title",
+    rating: 5,
+    icon: GraduationCap,
+    color: "blue"
+  },
+  {
+    id: 5,
+    quoteKey: "testimonials.items.student.quote",
+    author: "University of Nevada, Reno Student",
+    titleKey: "testimonials.items.student.title",
+    rating: 5,
+    icon: Building2,
+    color: "green"
+  },
+  {
+    id: 6,
+    quoteKey: "testimonials.items.dave.quote",
+    author: "Dave Babineau",
+    titleKey: "testimonials.items.dave.title",
     rating: 5,
     icon: Building,
     color: "purple"
@@ -73,60 +107,72 @@ export default function Testimonials() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 relative z-10">
-        {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={testimonial.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-              className={`group relative hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300 ${
-                index === 2 ? 'lg:col-start-1 lg:col-end-3 lg:mx-auto lg:max-w-2xl' : ''
-              }`}
-            >
-              {/* Testimonial Card */}
-              <div className={`bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-10 rounded-3xl shadow-xl border border-white/50 dark:border-gray-700/50 h-full relative overflow-hidden`}>
-                {/* Background Pattern */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${colorVariants[testimonial.color as keyof typeof colorVariants].bg} dark:from-gray-700/50 dark:to-gray-600/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
-                
-                {/* Content */}
-                <div className="relative z-10">
-                  {/* Quote Icon */}
-                  <div className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${colorVariants[testimonial.color as keyof typeof colorVariants].icon} shadow-lg mb-8 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
-                    <Quote className="h-7 w-7 text-white" />
-                  </div>
+        {/* Testimonials Carousel */}
+        <div className="mb-20">
+          <Carousel
+            orientation="vertical"
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full max-w-4xl mx-auto"
+          >
+            <CarouselContent className="-mt-1 h-[500px]">
+              {testimonials.map((testimonial) => (
+                <CarouselItem key={testimonial.id} className="pt-1">
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    className="group relative hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300 h-full"
+                  >
+                    {/* Testimonial Card */}
+                    <div className={`bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-10 rounded-3xl shadow-xl border border-white/50 dark:border-gray-700/50 h-full relative overflow-hidden`}>
+                      {/* Background Pattern */}
+                      <div className={`absolute inset-0 bg-gradient-to-br ${colorVariants[testimonial.color as keyof typeof colorVariants].bg} dark:from-gray-700/50 dark:to-gray-600/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
+                      
+                      {/* Content */}
+                      <div className="relative z-10">
+                        {/* Quote Icon */}
+                        <div className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${colorVariants[testimonial.color as keyof typeof colorVariants].icon} shadow-lg mb-8 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
+                          <Quote className="h-7 w-7 text-white" />
+                        </div>
 
-                  {/* Quote Text */}
-                  <blockquote className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 leading-relaxed mb-8 italic font-medium">
-                    &quot;{t(testimonial.quoteKey)}&quot;
-                  </blockquote>
+                        {/* Quote Text */}
+                        <blockquote className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 leading-relaxed mb-8 italic font-medium">
+                          &quot;{t(testimonial.quoteKey)}&quot;
+                        </blockquote>
 
-                  {/* Author Info */}
-                  <div className="flex items-start gap-4">
-                    {/* Icon Container */}
-                    <div className={`flex-shrink-0 w-16 h-16 rounded-2xl bg-gradient-to-br ${colorVariants[testimonial.color as keyof typeof colorVariants].icon} flex items-center justify-center shadow-lg`}>
-                      <testimonial.icon className="h-8 w-8 text-white" />
+                        {/* Author Info */}
+                        <div className="flex items-start gap-4">
+                          {/* Icon Container */}
+                          <div className={`flex-shrink-0 w-16 h-16 rounded-2xl bg-gradient-to-br ${colorVariants[testimonial.color as keyof typeof colorVariants].icon} flex items-center justify-center shadow-lg`}>
+                            <testimonial.icon className="h-8 w-8 text-white" />
+                          </div>
+
+                          {/* Author Details */}
+                          <div className="flex-1 min-w-0">
+                            <h4 className="font-bold text-gray-900 dark:text-white text-xl mb-1">
+                              {testimonial.author}
+                            </h4>
+                            <p className={`text-lg ${colorVariants[testimonial.color as keyof typeof colorVariants].accent} font-semibold break-words`}>
+                              {t(testimonial.titleKey)}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Hover Border */}
+                      <div className={`absolute inset-0 rounded-3xl border-2 border-transparent group-hover:border-${testimonial.color}-200/50 dark:group-hover:border-${testimonial.color}-400/50 transition-all duration-300`} />
                     </div>
-
-                    {/* Author Details */}
-                    <div className="flex-1 min-w-0">
-                      <h4 className="font-bold text-gray-900 dark:text-white text-xl mb-1">
-                        {testimonial.author}
-                      </h4>
-                      <p className={`text-lg ${colorVariants[testimonial.color as keyof typeof colorVariants].accent} font-semibold break-words`}>
-                        {t(testimonial.titleKey)}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Hover Border */}
-                <div className={`absolute inset-0 rounded-3xl border-2 border-transparent group-hover:border-${testimonial.color}-200/50 dark:group-hover:border-${testimonial.color}-400/50 transition-all duration-300`} />
-              </div>
-            </motion.div>
-          ))}
+                  </motion.div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
         </div>
 
         {/* Bottom CTA */}

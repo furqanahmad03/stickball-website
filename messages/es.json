@@ -48,6 +48,10 @@
       "mobileFriendly": {
         "title": "Compatible con Móviles",
         "description": "Funciona perfectamente en cualquier dispositivo, sin aplicación requerida"
+      },
+      "coCreated": {
+        "title": "Contenido Co-Creado con Maestros y Estudiantes",
+        "description": "Desarrollado junto con educadores y estudiantes, manteniendo cada lección relevante para las necesidades de las comunidades locales."
       }
     }
   },
@@ -192,6 +196,21 @@
         "quote": "La asociación con Stickball y las escuelas de Manchester nos permite generar un impacto significativo donde más importa: en el corazón de la comunidad.",
         "author": "Nathan Saller",
         "title": "Presidente y Director Ejecutivo de Bellwether Credit Union"
+      },
+      "devin": {
+        "quote": "Ojalá hubiera tenido a alguien que viniera a mí en 2010 cuando fui reclutado hablando sobre educación financiera...cuando crecía, no teníamos clases para eso o herramientas como Stickball. Aprovecha la oportunidad.",
+        "author": "Devin McCourty",
+        "title": "Leyenda de los Patriots de la NFL y Asesor de Stickball"
+      },
+      "student": {
+        "quote": "Stickball.biz hizo que el aprendizaje fuera real—es como practicar la vida antes de que suceda.",
+        "author": "Estudiante de la Universidad de Nevada, Reno",
+        "title": "Estudiante"
+      },
+      "dave": {
+        "quote": "Stickball ha sido un cambio de juego para mi aula. El contenido atractivo y los escenarios de la vida real ayudan a los estudiantes a entender las finanzas y construir confianza.",
+        "author": "Dave Babineau",
+        "title": "Jefe del Departamento de Matemáticas, Everett High School"
       }
     }
   },
@@ -216,6 +235,17 @@
     "subtitle": "Empoderando comunidades a través de tecnología educativa innovadora que realmente permanece.",
     "mission": "Nuestra Misión",
     "missionDescription": "Stickball es una plataforma líder de tecnología educativa dedicada a promover la educación financiera y la preparación laboral, con una creciente presencia en 10 estados. Con lecciones interactivas y orientación personalizada, Stickball empodera a estudiantes y profesionales para tomar decisiones financieras informadas a través de soluciones centradas en la comunidad.",
+    "ourTeam": "Nuestro Equipo",
+    "team": {
+      "sahal": {
+        "name": "Sahal Laher",
+        "title": "CEO"
+      },
+      "devin": {
+        "name": "Devin McCourty",
+        "title": "Asesor"
+      }
+    },
     "whatMakesUsDifferent": "Lo Que Nos Hace Diferentes",
     "coreStrengths": "Fortalezas",
     "coreStrengthsHighlight": "Centrales",
@@ -224,57 +254,7 @@
     "measurableImpactHighlight": "Mensurable",
     "ourMethodology": "Nuestra Metodología",
     "strategicApproach": "Enfoque",
-    "strategicApproachHighlight": "Estratégico",
-    "features": {
-      "educationTechnology": {
-        "title": "Tecnología Educativa",
-        "description": "Plataforma líder para educación financiera y preparación laboral"
-      },
-      "communityCentered": {
-        "title": "Centrada en la Comunidad",
-        "description": "Desarrollada colaborativamente con miembros de la comunidad"
-      },
-      "multiLanguage": {
-        "title": "Multiidioma",
-        "description": "Accesible a poblaciones diversas en todo el mundo"
-      },
-      "personalizedLearning": {
-        "title": "Aprendizaje Personalizado",
-        "description": "Rutas adaptativas adaptadas a necesidades individuales"
-      },
-      "inclusiveDesign": {
-        "title": "Diseño Inclusivo",
-        "description": "Sirve a individuos de todas las habilidades y antecedentes"
-      },
-      "fastImplementation": {
-        "title": "Implementación Rápida",
-        "description": "Despliegue rápido con impacto comunitario duradero"
-      }
-    },
-    "stats": {
-      "statesServed": "Estados Atendidos",
-      "learnersImpacted": "Aprendices Impactados",
-      "communityPartners": "Socios Comunitarios",
-      "satisfactionRate": "Tasa de Satisfacción"
-    },
-    "methodology": {
-      "communityDriven": {
-        "title": "Desarrollo Impulsado por la Comunidad",
-        "description": "La plataforma combina simulaciones interactivas con rutas de aprendizaje personalizadas para desarrollar habilidades esenciales de vida y trabajo, con todo desarrollado colaborativamente con miembros de la comunidad y continuamente adaptado basado en su retroalimentación."
-      },
-      "inclusiveDesign": {
-        "title": "Diseño Inclusivo",
-        "description": "El diseño inclusivo de Stickball sirve a individuos de todas las habilidades y antecedentes, con accesibilidad multiidioma asegurando que el programa sirva a poblaciones diversas."
-      },
-      "bottomUpStrategy": {
-        "title": "Estrategia de Abajo Hacia Arriba",
-        "description": "El enfoque de abajo hacia arriba de la empresa asegura que las herramientas educativas permanezcan en las comunidades de por vida, creando impacto duradero a través de asociaciones locales sostenidas."
-      },
-      "lastingImpact": {
-        "title": "Impacto Duradero",
-        "description": "Al enfocarnos en las necesidades de la comunidad y construir asociaciones sostenibles, creamos soluciones educativas que crecen y evolucionan con las comunidades a las que sirven."
-      }
-    }
+    "strategicApproachHighlight": "Estratégico"
   },
   "contact": {
     "title": "Ponte en",

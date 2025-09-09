@@ -48,6 +48,10 @@
       "mobileFriendly": {
         "title": "Mobile-Friendly",
         "description": "Runs seamlessly on any device, with no app required"
+      },
+      "coCreated": {
+        "title": "Content Co-Created With Teachers & Students",
+        "description": "Developed side-by-side with educators and learners, keeping every lesson relevant to the needs of local communities."
       }
     }
   },
@@ -192,6 +196,21 @@
         "quote": "Partnering with Stickball and Manchester schools lets us make a meaningful impact where it matters most—right in the heart of the community.",
         "author": "Nathan Saller",
         "title": "President and CEO of Bellwether Credit Union"
+      },
+      "devin": {
+        "quote": "I wish I had somebody come to me in 2010 when I got drafted talking about financial literacy...when I was growing up, we didn't have classes for that or tools like Stickball. Take advantage of it.",
+        "author": "Devin McCourty",
+        "title": "NFL Patriots Legend and Stickball Advisor"
+      },
+      "student": {
+        "quote": "Stickball.biz made learning real—it's like practicing life before it happens.",
+        "author": "University of Nevada, Reno Student",
+        "title": "Student"
+      },
+      "dave": {
+        "quote": "Stickball has been a game-changer for my classroom. The engaging content and real-life scenarios help students understand finance and build confidence.",
+        "author": "Dave Babineau",
+        "title": "Head of the Math Department, Everett High School"
       }
     }
   },
@@ -216,6 +235,17 @@
     "subtitle": "Empowering communities through innovative education technology that actually sticks.",
     "mission": "Our Mission",
     "missionDescription": "Stickball is a leading education technology platform dedicated to promoting financial literacy and workforce readiness, with a growing footprint across 10 states. With interactive lessons and personalized guidance, Stickball empowers students and professionals to make informed financial decisions through community-centered solutions.",
+    "ourTeam": "Our Team",
+    "team": {
+      "sahal": {
+        "name": "Sahal Laher",
+        "title": "CEO"
+      },
+      "devin": {
+        "name": "Devin McCourty",
+        "title": "Advisor"
+      }
+    },
     "whatMakesUsDifferent": "What Makes Us Different",
     "coreStrengths": "Core",
     "coreStrengthsHighlight": "Strengths",
@@ -224,57 +254,7 @@
     "measurableImpactHighlight": "Impact",
     "ourMethodology": "Our Methodology",
     "strategicApproach": "Strategic",
-    "strategicApproachHighlight": "Approach",
-    "features": {
-      "educationTechnology": {
-        "title": "Education Technology",
-        "description": "Leading platform for financial literacy and workforce readiness"
-      },
-      "communityCentered": {
-        "title": "Community-Centered",
-        "description": "Developed collaboratively with community members"
-      },
-      "multiLanguage": {
-        "title": "Multi-Language",
-        "description": "Accessible to diverse populations worldwide"
-      },
-      "personalizedLearning": {
-        "title": "Personalized Learning",
-        "description": "Adaptive paths tailored to individual needs"
-      },
-      "inclusiveDesign": {
-        "title": "Inclusive Design",
-        "description": "Serves individuals of all abilities and backgrounds"
-      },
-      "fastImplementation": {
-        "title": "Fast Implementation",
-        "description": "Quick deployment with lasting community impact"
-      }
-    },
-    "stats": {
-      "statesServed": "States Served",
-      "learnersImpacted": "Learners Impacted",
-      "communityPartners": "Community Partners",
-      "satisfactionRate": "Satisfaction Rate"
-    },
-    "methodology": {
-      "communityDriven": {
-        "title": "Community-Driven Development",
-        "description": "The platform blends interactive simulations with personalized learning paths to build essential life and workplace skills, with everything developed collaboratively with community members and continuously adapted based on their feedback."
-      },
-      "inclusiveDesign": {
-        "title": "Inclusive Design",
-        "description": "Stickball's inclusive design serves individuals of all abilities and backgrounds, with multi-language accessibility ensuring the program serves diverse populations."
-      },
-      "bottomUpStrategy": {
-        "title": "Bottom-Up Strategy",
-        "description": "The company's bottom-up approach ensures that educational tools remain in communities for life, creating lasting impact through sustained local partnerships."
-      },
-      "lastingImpact": {
-        "title": "Lasting Impact",
-        "description": "By focusing on community needs and building sustainable partnerships, we create educational solutions that grow and evolve with the communities they serve."
-      }
-    }
+    "strategicApproachHighlight": "Approach"
   },
   "contact": {
     "title": "Get in",
