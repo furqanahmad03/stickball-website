@@ -1,18 +1,18 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
-// Email configuration
+const emails: string[] = ["aaron@stickball.biz", "paul@stickball.biz", "developers@stickball.biz"];
+
 const emailConfig = {
   host: process.env.EMAIL_HOST || "smtp.gmail.com",
   port: parseInt(process.env.EMAIL_PORT || "587"),
-  secure: false, // true for 465, false for other ports
+  secure: false,
   auth: {
     user: process.env.EMAIL_USER || "",
     pass: process.env.EMAIL_PASS || "",
   },
 };
 
-// Create transporter
 const transporter = nodemailer.createTransport(emailConfig);
 
 export async function POST(request: NextRequest) {
@@ -20,7 +20,6 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const { name, organization, email, message } = body;
 
-    // Validate required fields
     if (!name || !email || !message) {
       return NextResponse.json(
         {
@@ -31,7 +30,6 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return NextResponse.json(
@@ -40,10 +38,9 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Prepare email content
     const mailOptions = {
-      from: process.env.EMAIL_FROM || "",
-      to: process.env.EMAIL_TO || "",
+      from: process.env.EMAIL_USER || "",
+      to: emails.join(", "),
       subject: "[Stickball Contact] New Contact Form Submission",
       html: `
         <!DOCTYPE html>
@@ -158,7 +155,6 @@ Sent at: ${new Date().toLocaleString()}
       `,
     };
 
-    // Send email
     const info = await transporter.sendMail(mailOptions);
 
     return NextResponse.json({
@@ -182,10 +178,8 @@ Sent at: ${new Date().toLocaleString()}
   }
 }
 
-// Test email configuration
 export async function GET() {
   try {
-    // Verify transporter configuration
     await transporter.verify();
 
     return NextResponse.json({

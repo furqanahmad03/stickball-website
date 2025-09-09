@@ -115,22 +115,22 @@ export default function Testimonials() {
               align: "start",
               loop: true,
             }}
-            className="w-full max-w-4xl mx-auto"
+            className="w-full max-w-4xl mx-auto overflow-visible"
           >
-            <CarouselContent className="-mt-1 h-[500px]">
+            <CarouselContent className="-mt-1 h-[520px] py-6">
               {testimonials.map((testimonial) => (
-                <CarouselItem key={testimonial.id} className="pt-1">
+                <CarouselItem key={testimonial.id} className="pt-3 px-2">
                   <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.5, ease: "easeOut" }}
-                    className="group relative hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300 h-full"
+                    className="group relative hover:scale-[1.02] transition-all duration-300 h-full"
                   >
                     {/* Testimonial Card */}
-                    <div className={`bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-10 rounded-3xl shadow-xl border border-white/50 dark:border-gray-700/50 h-full relative overflow-hidden`}>
+                    <div className={`bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-10 rounded-3xl shadow-xl border border-white/50 dark:border-gray-700/50 h-full relative overflow-visible`}>
                       {/* Background Pattern */}
-                      <div className={`absolute inset-0 bg-gradient-to-br ${colorVariants[testimonial.color as keyof typeof colorVariants].bg} dark:from-gray-700/50 dark:to-gray-600/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
+                      <div className={`absolute inset-0 bg-gradient-to-br rounded-3xl ${colorVariants[testimonial.color as keyof typeof colorVariants].bg} dark:from-gray-700/50 dark:to-gray-600/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
                       
                       {/* Content */}
                       <div className="relative z-10">
