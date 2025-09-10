@@ -140,10 +140,6 @@
     "title": "Stickball",
     "titleHighlight": "In the Press",
     "subtitle": "Discover how media outlets and partners are covering our mission to transform financial literacy and workforce development across communities.",
-    "ctaTitle": "Get Press Resources & Media Information",
-    "ctaDescription": "Download our press kit for media coverage or get in touch for interviews and inquiries.",
-    "downloadPressKit": "Download Press Kit",
-    "contactMedia": "Contact for Media Inquiries",
     "items": {
       "everett": {
         "title": "Everett High School Partners with Stickball for Financial Literacy",
@@ -178,15 +174,8 @@
     }
   },
   "testimonials": {
-    "ctaTitle": "Join Our Growing Network of Partners",
-    "ctaDescription": "See how Stickball can transform learning in your institution or community.",
-    "ctaButton": "Start Your Partnership Today",
+    "scrollHint": "Swipe or use arrows to see more testimonials",
     "items": {
-      "alfred": {
-        "quote": "The engaging content and real-life scenarios help students understand finance and build confidence.",
-        "author": "Alfred Daviso, Ph.D",
-        "title": "Akron University"
-      },
       "jenn": {
         "quote": "Our students thrive when we connect learning with real-world experiences... Thanks to Bellwether Community Credit Union and Stickball, we're giving students a fun, hands-on way to build confidence, collaboration, and essential life skills.",
         "author": "Dr. Jenn Chmiel",
@@ -204,8 +193,8 @@
       },
       "student": {
         "quote": "Stickball.biz made learning real—it's like practicing life before it happens.",
-        "author": "University of Nevada, Reno Student",
-        "title": "Student"
+        "author": "Student",
+        "title": "University of Nevada, Reno"
       },
       "dave": {
         "quote": "Stickball has been a game-changer for my classroom. The engaging content and real-life scenarios help students understand finance and build confidence.",

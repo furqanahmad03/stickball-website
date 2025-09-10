@@ -140,10 +140,6 @@
     "title": "Stickball",
     "titleHighlight": "En la Prensa",
     "subtitle": "Descubre cómo los medios de comunicación y socios están cubriendo nuestra misión de transformar la educación financiera y el desarrollo de la fuerza laboral en las comunidades.",
-    "ctaTitle": "Obtén Recursos de Prensa e Información de Medios",
-    "ctaDescription": "Descarga nuestro kit de prensa para cobertura de medios o ponte en contacto para entrevistas e investigaciones.",
-    "downloadPressKit": "Descargar Kit de Prensa",
-    "contactMedia": "Contactar para Consultas de Medios",
     "items": {
       "everett": {
         "title": "Everett High School se Asocia con Stickball para Educación Financiera",
@@ -178,15 +174,8 @@
     }
   },
   "testimonials": {
-    "ctaTitle": "Únete a Nuestra Red Creciente de Socios",
-    "ctaDescription": "Ve cómo Stickball puede transformar el aprendizaje en tu institución o comunidad.",
-    "ctaButton": "Comienza Tu Asociación Hoy",
+    "scrollHint": "Desliza o usa las flechas para ver más testimonios",
     "items": {
-      "alfred": {
-        "quote": "El contenido atractivo y los escenarios de la vida real ayudan a los estudiantes a entender las finanzas y construir confianza.",
-        "author": "Alfred Daviso, Ph.D",
-        "title": "Universidad de Akron"
-      },
       "jenn": {
         "quote": "Nuestros estudiantes prosperan cuando conectamos el aprendizaje con experiencias del mundo real... Gracias a Bellwether Community Credit Union y Stickball, estamos dando a los estudiantes una forma divertida y práctica de construir confianza, colaboración y habilidades esenciales para la vida.",
         "author": "Dra. Jenn Chmiel",
@@ -204,8 +193,8 @@
       },
       "student": {
         "quote": "Stickball.biz hizo que el aprendizaje fuera real—es como practicar la vida antes de que suceda.",
-        "author": "Estudiante de la Universidad de Nevada, Reno",
-        "title": "Estudiante"
+        "author": "Estudiante",
+        "title": "Universidad de Nevada, Reno"
       },
       "dave": {
         "quote": "Stickball ha sido un cambio de juego para mi aula. El contenido atractivo y los escenarios de la vida real ayudan a los estudiantes a entender las finanzas y construir confianza.",
