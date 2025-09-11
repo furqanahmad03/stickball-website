@@ -204,10 +204,10 @@ export default function Testimonials() {
             </div>
             
             {/* Text Indicator */}
-            <div className="inline-flex items-center gap-2 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm px-4 py-2 rounded-full text-sm text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700">
+            {/* <div className="inline-flex items-center gap-2 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm px-4 py-2 rounded-full text-sm text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700">
               <span className="font-medium">{t("testimonials.scrollHint")}</span>
               <ArrowRight className="h-4 w-4" />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
