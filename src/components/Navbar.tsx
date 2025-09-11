@@ -21,11 +21,12 @@ const navigationItems = [
     href: "/about",
     current: false
   },
-  {
-    nameKey: "navigation.methodology",
-    href: "/methodology",
-    current: false
-  },
+  //TODO: we have to un comment this once methodology is live
+  // {
+  //   nameKey: "navigation.methodology",
+  //   href: "/methodology",
+  //   current: false
+  // },
   {
     nameKey: "navigation.contact",
     href: "/contact",
@@ -179,7 +180,7 @@ export default function Navbar() {
               })}
 
               {/* Mobile Dark Mode Toggle */}
-              <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
+              {/* <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
                 <button
                   onClick={toggleTheme}
                   className="w-full flex items-center justify-center gap-2 px-3 py-2 text-base font-bold rounded-md text-gray-900 hover:text-[rgb(97,109,237)] hover:bg-[rgba(97,109,237,0.1)] dark:text-gray-100 dark:hover:bg-[rgba(97,109,237,0.1)] transition-colors duration-200"
@@ -196,7 +197,7 @@ export default function Navbar() {
                     </>
                   )}
                 </button>
-              </div>
+              </div> */}
             </div>
           </motion.div>
         )}

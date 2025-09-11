@@ -54,7 +54,7 @@ export default function HeroSection() {
             <Button
               onClick={() => router.push(`/${locale}/contact`)}
               size="lg"
-              className="group relative overflow-hidden bg-gradient-to-r from-[rgb(77,89,217)] via-[rgb(67,79,207)] to-[rgb(77,89,217)] hover:from-[rgb(57,69,197)] hover:via-[rgb(67,79,207)] hover:to-[rgb(57,69,197)] text-white px-8 py-6 text-xl font-bold rounded-sm shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-1 border-0"
+              className="group relative overflow-hidden bg-gradient-to-r from-[rgb(77,89,217)] via-[rgb(67,79,207)] to-[rgb(77,89,217)] hover:from-[rgb(57,69,197)] hover:via-[rgb(67,79,207)] hover:to-[rgb(57,69,197)] text-white px-16 py-8 text-2xl font-bold rounded-xl shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-1 border-0"
             >
               <span className="relative z-10">{t("hero.ctaButton")}</span>
               {/* Shimmer effect */}

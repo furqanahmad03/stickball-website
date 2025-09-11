@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 import {
   BookOpen,
   FlaskConical,
@@ -74,6 +75,10 @@ export default function Page() {
   const locale = useLocale();
   const router = useRouter();
   const t = useTranslations();
+  //TODO: we have to remove this once methodology is live
+  useEffect(() => {
+    router.push(`/${locale}`);
+  }, [router]);
   
   return (
     <div className="mt-10">

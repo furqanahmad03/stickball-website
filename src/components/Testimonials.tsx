@@ -141,7 +141,7 @@ export default function Testimonials() {
                     className="group relative hover:scale-[1.02] transition-all duration-300 h-full m-4"
                   >
                     {/* Testimonial Card */}
-                    <div className={`bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-10 rounded-3xl shadow-xl border border-white/50 dark:border-gray-700/50 h-[500px] relative overflow-visible`}>
+                    <div className={`bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-10 rounded-3xl shadow-xl border border-white/50 dark:border-gray-700/50 h-[600px] sm:h-[500px] relative overflow-visible`}>
                       {/* Background Pattern */}
                       <div className={`absolute inset-0 bg-gradient-to-br rounded-3xl ${colorVariants[testimonial.color as keyof typeof colorVariants].bg} dark:from-gray-700/50 dark:to-gray-600/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
                       
