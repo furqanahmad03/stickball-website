@@ -1,47 +1,47 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { GraduationCap, Building2, Users, PiggyBank, Heart, ChevronRight } from "lucide-react";
+import { DollarSign, Briefcase, Heart, Users, Brain, ChevronRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
 
 const audienceTiles = [
   {
-    icon: GraduationCap,
-    titleKey: "whoWeServe.audiences.schools.title",
-    descriptionKey: "whoWeServe.audiences.schools.description",
+    icon: DollarSign,
+    titleKey: "whoWeServe.audiences.financialLiteracy.title",
+    descriptionKey: "whoWeServe.audiences.financialLiteracy.description",
     color: "blue",
     bgGradient: "from-blue-50 to-blue-100/50",
     iconBg: "from-blue-500 to-blue-600"
   },
   {
-    icon: Building2,
-    titleKey: "whoWeServe.audiences.communities.title",
-    descriptionKey: "whoWeServe.audiences.communities.description",
+    icon: Briefcase,
+    titleKey: "whoWeServe.audiences.workforceReadiness.title",
+    descriptionKey: "whoWeServe.audiences.workforceReadiness.description",
     color: "green",
     bgGradient: "from-green-50 to-green-100/50",
     iconBg: "from-green-500 to-green-600"
   },
   {
+    icon: Heart,
+    titleKey: "whoWeServe.audiences.healthcare101.title",
+    descriptionKey: "whoWeServe.audiences.healthcare101.description",
+    color: "red",
+    bgGradient: "from-red-50 to-red-100/50",
+    iconBg: "from-red-500 to-red-600"
+  },
+  {
     icon: Users,
-    titleKey: "whoWeServe.audiences.employers.title",
-    descriptionKey: "whoWeServe.audiences.employers.description",
+    titleKey: "whoWeServe.audiences.communityWellness.title",
+    descriptionKey: "whoWeServe.audiences.communityWellness.description",
     color: "purple",
     bgGradient: "from-purple-50 to-purple-100/50",
     iconBg: "from-purple-500 to-purple-600"
   },
   {
-    icon: PiggyBank,
-    titleKey: "whoWeServe.audiences.banks.title",
-    descriptionKey: "whoWeServe.audiences.banks.description",
-    color: "orange",
-    bgGradient: "from-orange-50 to-orange-100/50",
-    iconBg: "from-orange-500 to-orange-600"
-  },
-  {
-    icon: Heart,
-    titleKey: "whoWeServe.audiences.sponsors.title",
-    descriptionKey: "whoWeServe.audiences.sponsors.description",
+    icon: Brain,
+    titleKey: "whoWeServe.audiences.aiLiteracy.title",
+    descriptionKey: "whoWeServe.audiences.aiLiteracy.description",
     color: "indigo",
     bgGradient: "from-indigo-50 to-indigo-100/50",
     iconBg: "from-indigo-500 to-indigo-600"
@@ -54,7 +54,7 @@ export default function WhoWeServe() {
   const locale = useLocale();
 
   return (
-    <section className="py-24 bg-gradient-to-br from-slate-50 via-white to-blue-50/30 dark:from-background dark:via-[#1c1c1c] dark:to-[#2c2c2c] relative overflow-hidden">
+    <section className="md:py-24 py-10 bg-gradient-to-br from-slate-50 via-white to-blue-50/30 dark:from-background dark:via-[#1c1c1c] dark:to-[#2c2c2c] relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 right-10 w-32 h-32 bg-blue-100/20 dark:bg-blue-900/20 rounded-full blur-3xl"></div>
@@ -68,7 +68,7 @@ export default function WhoWeServe() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ delay: 0.1, duration: 0.5, ease: "easeOut" }}
-          className="text-center mb-20"
+          className="text-center md:mb-20 mb-10"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -82,10 +82,10 @@ export default function WhoWeServe() {
             </span>
           </motion.div>
 
-          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-8 leading-tight">
+          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-4 leading-tight">
             {t("whoWeServe.title")} <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">{t("whoWeServe.titleHighlight")}</span>
           </h2>
-          <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8">
             {t("whoWeServe.subtitle")}
           </p>
         </motion.div>
@@ -118,7 +118,7 @@ export default function WhoWeServe() {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-gray-800 dark:group-hover:text-gray-100 transition-colors duration-300">
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-gray-800 dark:group-hover:text-gray-100 transition-colors duration-300">
                     {t(tile.titleKey)}
                   </h3>
 
@@ -143,7 +143,7 @@ export default function WhoWeServe() {
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="text-center"
         >
-          <div className="bg-gradient-to-r from-white to-blue-50/50 dark:from-gray-800 dark:to-gray-700 p-12 rounded-3xl shadow-2xl border border-white/50 dark:border-gray-700 backdrop-blur-sm max-w-5xl mx-auto hover:scale-[1.02] transition-all duration-300">
+          <div className="bg-gradient-to-r from-white to-blue-50/50 dark:from-gray-800 dark:to-gray-700 md:p-12 p-6 rounded-3xl shadow-2xl border border-white/50 dark:border-gray-700 backdrop-blur-sm max-w-5xl mx-auto hover:scale-[1.02] transition-all duration-300">
             <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
               {t("whoWeServe.ctaTitle")}
             </h3>

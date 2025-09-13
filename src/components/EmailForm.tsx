@@ -137,39 +137,42 @@ export default function EmailForm() {
 
           <form onSubmit={handleSubmit} className="space-y-6">
 
-            {/* Name Field */}
-            <div className="space-y-2">
-              <Label htmlFor="name" className="text-gray-700 dark:text-gray-300 font-medium flex items-center gap-2">
-                <User className="h-4 w-4" />
-                {t('fields.name.label')}
-              </Label>
-              <Input
-                id="name"
-                name="name"
-                type="text"
-                required
-                value={formData.name}
-                onChange={handleInputChange}
-                placeholder={t('fields.name.placeholder')}
-                className="h-14 text-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200"
-              />
-            </div>
+            {/* Name and Organization Fields */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Name Field */}
+              <div className="space-y-2">
+                <Label htmlFor="name" className="text-gray-700 dark:text-gray-300 font-medium flex items-center gap-2">
+                  <User className="h-4 w-4" />
+                  {t('fields.name.label')}
+                </Label>
+                <Input
+                  id="name"
+                  name="name"
+                  type="text"
+                  required
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  placeholder={t('fields.name.placeholder')}
+                  className="h-14 text-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200"
+                />
+              </div>
 
-            {/* Organization Field */}
-            <div className="space-y-2">
-              <Label htmlFor="organization" className="text-gray-700 dark:text-gray-300 font-medium flex items-center gap-2">
-                <Building className="h-4 w-4" />
-                {t('fields.organization.label')}
-              </Label>
-              <Input
-                id="organization"
-                name="organization"
-                type="text"
-                value={formData.organization}
-                onChange={handleInputChange}
-                placeholder={t('fields.organization.placeholder')}
-                className="h-14 text-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200"
-              />
+              {/* Organization Field */}
+              <div className="space-y-2">
+                <Label htmlFor="organization" className="text-gray-700 dark:text-gray-300 font-medium flex items-center gap-2">
+                  <Building className="h-4 w-4" />
+                  {t('fields.organization.label')}
+                </Label>
+                <Input
+                  id="organization"
+                  name="organization"
+                  type="text"
+                  value={formData.organization}
+                  onChange={handleInputChange}
+                  placeholder={t('fields.organization.placeholder')}
+                  className="h-14 text-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200"
+                />
+              </div>
             </div>
 
             {/* Email Field */}

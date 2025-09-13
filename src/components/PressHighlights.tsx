@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Download, Mail, ExternalLink, Play } from "lucide-react";
+import { ExternalLink, Play } from "lucide-react";
 import {
   Carousel,
   CarouselContent,
@@ -9,9 +9,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { useTranslations, useLocale } from "next-intl";
-import { useRouter } from "next/navigation";
-import { PDFGenerator, extractContentFromTranslations } from "@/lib/pdfGenerator";
+import { useTranslations } from "next-intl";
 
 const pressItems = [
   {
@@ -67,26 +65,10 @@ const pressItems = [
 ];
 
 export default function PressHighlights() {
-  const locale = useLocale();
-  const router = useRouter();
   const t = useTranslations();
-  
-  const handleDownloadPressKit = () => {
-    try {
-      // Extract content from translations
-      const content = extractContentFromTranslations(t);
-      
-      // Generate PDF
-      const pdfGenerator = new PDFGenerator();
-      pdfGenerator.generatePDF(content, locale);
-    } catch (error) {
-      console.error('Error generating PDF:', error);
-      alert("There was an error generating the press kit. Please try again.");
-    }
-  };
 
   return (
-    <section className="py-24 bg-gradient-to-br from-slate-50 via-white to-purple-50/30 dark:from-[#2c2c2c] dark:via-[#1c1c1c] dark:to-background relative overflow-hidden">
+    <section className="md:py-24 py-10 bg-gradient-to-br from-slate-50 via-white to-purple-50/30 dark:from-[#2c2c2c] dark:via-[#1c1c1c] dark:to-background relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 left-10 w-32 h-32 bg-blue-100/20 dark:bg-blue-900/20 rounded-full blur-3xl"></div>
@@ -100,7 +82,7 @@ export default function PressHighlights() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="text-center mb-20"
+          className="text-center md:mb-20 mb-10"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -123,7 +105,7 @@ export default function PressHighlights() {
         </motion.div>
 
         {/* Carousel Container */}
-        <motion.div className="max-w-6xl mx-auto mb-20">
+        <motion.div className="max-w-6xl mx-auto md:mb-20 mb-10">
           <Carousel className="w-full" opts={{ loop: true }}>
             <CarouselContent>
               {pressItems.map((item) => (
@@ -202,42 +184,6 @@ export default function PressHighlights() {
             <CarouselPrevious className="left-6 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm hover:bg-white dark:hover:bg-gray-700 text-gray-800 dark:text-gray-200 shadow-xl hover:shadow-2xl transition-all duration-300 border-0 hover:scale-105" />
             <CarouselNext className="right-6 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm hover:bg-white dark:hover:bg-gray-700 text-gray-800 dark:text-gray-200 shadow-xl hover:shadow-2xl transition-all duration-300 border-0 hover:scale-105" />
           </Carousel>
-        </motion.div>
-
-        {/* CTA Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="text-center"
-        >
-          <div className="bg-gradient-to-r from-white to-blue-50/50 dark:from-gray-800 dark:to-gray-700 p-12 rounded-3xl shadow-2xl border border-white/50 dark:border-gray-700 backdrop-blur-sm max-w-5xl mx-auto hover:scale-[1.02] transition-all duration-300">
-            <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-              {t("pressHighlights.ctaTitle")}
-            </h3>
-            <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
-              {t("pressHighlights.ctaDescription")}
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <button
-                onClick={handleDownloadPressKit}
-                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 sm:px-10 py-4 text-lg rounded-full font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 inline-flex items-center gap-3 hover:scale-105"
-              >
-                <Download className="h-5 w-5" />
-                {t("pressHighlights.downloadPressKit")}
-              </button>
-              
-              <button
-                onClick={() => router.push(`/${locale}/contact`)}
-                className="bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 px-6 sm:px-10 py-4 text-xs sm:text-sm md:text-lg rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center gap-3 hover:scale-105"
-              >
-                <Mail className="h-5 w-5" />
-                {t("pressHighlights.contactMedia")}
-              </button>
-            </div>
-          </div>
         </motion.div>
       </div>
     </section>
